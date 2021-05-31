@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What’s New In Tohil 4.0 &#8212; Tohil 4.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    
+    <script src="../_static/sidebar.js"></script>
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Tohil 4.0 documentation"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="What’s New In Tohil 3.2" href="3.2.html" />
+    <link rel="prev" title="What’s New in Tohil" href="index.html" />
+    <link rel="canonical" href="https://docs.python.org/3/whatsnew/4.0.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link rel="shortcut icon" type="image/png" href="../_static/tohil.png" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://github.com/flightaware/tohil" class="nav-logo">
+             <img src="../_static/tohil.png" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What’s New In Tohil 4.0</a><ul>
+<li><a class="reference internal" href="#tclobj-default-return">tclobj default return</a></li>
+<li><a class="reference internal" href="#python-subinterpreter-support">Python Subinterpreter Support</a></li>
+<li><a class="reference internal" href="#support-for-separate-virtual-interpreters-in-rivet">Support for Separate Virtual Interpreters in Rivet</a></li>
+<li><a class="reference internal" href="#a-function-can-now-be-specified-in-a-to-arg">A function can now be specified in a to= arg</a></li>
+<li><a class="reference internal" href="#user-facing-behavior-changes">User-Facing Behavior Changes</a></li>
+<li><a class="reference internal" href="#internal-changes">Internal Changes</a></li>
+<li><a class="reference internal" href="#documentation-improvements">Documentation Improvements</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">What’s New in Tohil</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="3.2.html"
+                        title="next chapter">What’s New In Tohil 3.2</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/master/Doc/whatsnew/4.0.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="3.2.html" title="What’s New In Tohil 3.2"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="What’s New in Tohil"
+             accesskey="P">previous</a> |</li>
+
+          <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://github.com/flightaware/tohil">Tohil</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">4.0 Documentation</a> &#187;
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">What’s New in Tohil</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">What’s New In Tohil 4.0</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="what-s-new-in-tohil-4-0">
+<h1>What’s New In Tohil 4.0<a class="headerlink" href="#what-s-new-in-tohil-4-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tclobj-default-return">
+<h2>tclobj default return<a class="headerlink" href="#tclobj-default-return" title="Permalink to this headline">¶</a></h2>
+<p>This is a biggie.  Many Tohil functions accept a <em>to=</em> argument
+where you can specify a Python data type to convert a tcl
+object returned from doing a call or accessing tcl data.
+You can
+set a return type of <em>str</em>, <em>int</em>, <em>bool</em>, <em>float</em>, <em>list</em>, <em>set</em>,
+<em>dict</em>, <em>tuple</em>, <em>tohil.tclobj</em> or <em>tohil.tcldict</em>.</p>
+<p>Prior to Tohil 4, if you didn’t set a <em>to=</em> return type, the default
+return type was string, <em>str</em>.  This seemed perfectly reasonable;
+after all, in Tcl, despite it having internal objects and maintaining
+in them a cache of a conversion to a data type such as integer, list,
+etc, in Tcl “every value is a string.”</p>
+<p>However, as we have enhanced and extended Tohil’s tclobj type,
+it has become ever easier to use tclobjs directly from Python
+with no funny business.
+You can get a tclobj’s string representation with <em>str()</em>, integer
+with <em>int()</em>, float with <em>float()</em>, list with <em>list()</em>, and others.
+You can use Python list notation to access and manipulate elements
+of tclobjs when they contain lists, can iterate over them, etc.</p>
+<p>Since Tohil’s tclobj type implements Python’s number protocol, if tclobjs
+contain numbers, they can be used in calculations without
+conversion via <em>int()</em> and <em>float()</em>.</p>
+<p>Consequently starting in Tohil 4, the default <em>to</em> return is now
+<em>tohil.tclobj</em>.  In our experience, and a little bit to our surprise,
+most Python code that uses Tohil will “just work” without modifications.</p>
+<p>If, though, for instance, you didn’t specify a default return and then
+knowing you would get a str invoked string methods on the str that
+was returned, you’ll
+probably get an error because the tclobj doesn’t implement all of the
+str datatype’s methods.  In this
+case, adding a <em>to=str</em> to the Tohil call will be sufficient to get
+your code working under Tohil 4.</p>
+</div>
+<div class="section" id="python-subinterpreter-support">
+<h2>Python Subinterpreter Support<a class="headerlink" href="#python-subinterpreter-support" title="Permalink to this headline">¶</a></h2>
+<p>Full Python subinterpreter support!</p>
+<p>First, starting with version 4, Tohil properly supports multi-phase init,
+meaning that multiple Python interpreters (the Python interpreter and
+any subinterpreters) can import tohil and they will get their own instance
+of Tohil, so there is no “crosstalk” between the interpreters.</p>
+<p>Second, Tohil recognizes when a second Tcl interpreter within the same
+process has done a <code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">require</span> <span class="pre">tohil</span></code> and will create and exclusively
+interact with a separate, distinct Python subinterpreter for each
+corresponding Tcl interpreter.</p>
+<p>Say for instance you create a new Tcl interpreter from Tcl, using
+something like <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">interp</span> <span class="pre">[interp</span> <span class="pre">create]</span></code> and then do
+<code class="docutils literal notranslate"><span class="pre">$interp</span> <span class="pre">eval</span> <span class="pre">&quot;package</span> <span class="pre">require</span> <span class="pre">tohil&quot;</span></code>, that second interpreter
+doing the package require causes a new Python subinterpreter to be
+created and initialized.</p>
+<p>And it works great.</p>
+<p>When any of the Tcl interpreters exercises their Python interpreter,
+Tohil will automatically switch Python’s executing interpreter to
+that interpreter (swap its thread state), if needed.</p>
+<p>Upon deletion of a Tcl interpreter, if there is an attached
+Python subinterpreter, it is deleted as well.</p>
+<p>Implementation Note:  This was pretty tricky, because we previously
+had global variables,
+in particular one pointing to the Tcl interpreter.  We had to figure
+out ways to stash the pointer to the Tcl interpreter in Python using
+C such that we could find it later when we didn’t have control over
+how we were called, for example we are being called from Python with
+to do some Python thing, you only get what it calls you with.  So we
+stashed the interpreter pointer in a capsule in Tohil’s Python data types’
+dictionaries and in __main__’s dictionary.  It turned out really nice.</p>
+</div>
+<div class="section" id="support-for-separate-virtual-interpreters-in-rivet">
+<h2>Support for Separate Virtual Interpreters in Rivet<a class="headerlink" href="#support-for-separate-virtual-interpreters-in-rivet" title="Permalink to this headline">¶</a></h2>
+<p>A nice bit of fallout from the above, if you’re running the Apache
+webserver with the
+<a href="#id1"><span class="problematic" id="id2">`Apache Rivet https://tcl.apache.org/rivet/`_</span></a> module installed and running
+in the mode where different
+virtual hosts run in separate Tcl interpreters, known as separate virtual
+interpreters, each vhost that does a <code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">require</span> <span class="pre">tohil</span></code> will get its
+own Python subinterpreter, isolating Python between the vhosts just as
+Tcl is.</p>
+</div>
+<div class="section" id="a-function-can-now-be-specified-in-a-to-arg">
+<h2>A function can now be specified in a to= arg<a class="headerlink" href="#a-function-can-now-be-specified-in-a-to-arg" title="Permalink to this headline">¶</a></h2>
+<p>The <em>to=</em> argument to a Tohil function such as <em>tohil.eval</em>,
+<em>tohil.call</em>, etc, has until now been required to specify a
+Python data type such as <em>int</em>, <em>float</em>, <em>str</em>, <em>tohil.tclobj</em>,
+etc. It can now also be specified as a callable function.</p>
+<p>If the <em>to</em> argument is not a recognized data type but is
+a callable function, Tohil will call that function
+with one argument, a tclobj object containing the object
+to be returned, and it is expected that the function will
+manipulate the object in some way and then return a result.
+Whatever the function returns is what the
+relevant tohil function will return.</p>
+<p>This provides an additional way for a Tohil developer to customize
+the return of some Tcl activity in order to make it more standard
+and readily useful to the Python caller.</p>
+</div>
+<div class="section" id="user-facing-behavior-changes">
+<h2>User-Facing Behavior Changes<a class="headerlink" href="#user-facing-behavior-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>When Tcl is the parent, <code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">require</span> <span class="pre">tohil</span></code> will, in addition to
+initializing Python, automatically import tohil on the Python side.</p></li>
+</ul>
+</div>
+<div class="section" id="internal-changes">
+<h2>Internal Changes<a class="headerlink" href="#internal-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>When Tcl is the parent and Tohil initializes Python from scratch,
+we use <code class="docutils literal notranslate"><span class="pre">PyInitializeEx(0)</span></code> instead of <code class="docutils literal notranslate"><span class="pre">Py_Initialize</span></code> to
+prevent Python from registering signal handlers.  (Signal handling probably
+ought to be Tcl’s business under this circumstance.)</p></li>
+<li><p>Internal code refactoring and cleanup.</p></li>
+</ul>
+</div>
+<div class="section" id="documentation-improvements">
+<h2>Documentation Improvements<a class="headerlink" href="#documentation-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Greatly improved documentation in Python-standard format.</p></li>
+<li><p>Makefile and docs for building the docs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">serve</span></code> target to serve the docs via http (for devs)</p></li>
+</ul>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What’s New In Tohil 4.0</a><ul>
+<li><a class="reference internal" href="#tclobj-default-return">tclobj default return</a></li>
+<li><a class="reference internal" href="#python-subinterpreter-support">Python Subinterpreter Support</a></li>
+<li><a class="reference internal" href="#support-for-separate-virtual-interpreters-in-rivet">Support for Separate Virtual Interpreters in Rivet</a></li>
+<li><a class="reference internal" href="#a-function-can-now-be-specified-in-a-to-arg">A function can now be specified in a to= arg</a></li>
+<li><a class="reference internal" href="#user-facing-behavior-changes">User-Facing Behavior Changes</a></li>
+<li><a class="reference internal" href="#internal-changes">Internal Changes</a></li>
+<li><a class="reference internal" href="#documentation-improvements">Documentation Improvements</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">What’s New in Tohil</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="3.2.html"
+                        title="next chapter">What’s New In Tohil 3.2</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/master/Doc/whatsnew/4.0.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="3.2.html" title="What’s New In Tohil 3.2"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="What’s New in Tohil"
+             >previous</a> |</li>
+
+          <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://github.com/flightaware/tohil">Tohil</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">4.0 Documentation</a> &#187;
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >What’s New in Tohil</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">What’s New In Tohil 4.0</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2014, Aidan Hobson Sayers, 2021-2021, FlightAware LLC.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on May 31, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+
+  </body>
+</html>

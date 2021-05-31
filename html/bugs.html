@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dealing with Bugs &#8212; Tohil 4.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pydoctheme.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <script src="_static/sidebar.js"></script>
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Tohil 4.0 documentation"
+          href="_static/opensearch.xml"/>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
+    <link rel="next" title="Copyright and License" href="license.html" />
+    <link rel="prev" title="About these documents" href="about.html" />
+    <link rel="canonical" href="https://docs.python.org/3/bugs.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link rel="shortcut icon" type="image/png" href="_static/tohil.png" />
+            <script type="text/javascript" src="_static/copybutton.js"></script>
+            <script type="text/javascript" src="_static/menu.js"></script> 
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://github.com/flightaware/tohil" class="nav-logo">
+             <img src="_static/tohil.png" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form id="searchbox" role="search" class="search" action="search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Dealing with Bugs</a><ul>
+<li><a class="reference internal" href="#documentation-bugs">Documentation bugs</a></li>
+<li><a class="reference internal" href="#using-the-tohil-issue-tracker">Using the Tohil issue tracker</a></li>
+<li><a class="reference internal" href="#getting-started-contributing-to-tohil-yourself">Getting started contributing to Tohil yourself</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="about.html"
+                        title="previous chapter">About these documents</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="license.html"
+                        title="next chapter">Copyright and License</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="#">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/master/Doc/bugs.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="license.html" title="Copyright and License"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="about.html" title="About these documents"
+             accesskey="P">previous</a> |</li>
+
+          <li><img src="_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://github.com/flightaware/tohil">Tohil</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="index.html">4.0 Documentation</a> &#187;
+    </li>
+
+        <li class="nav-item nav-item-this"><a href="">Dealing with Bugs</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="dealing-with-bugs">
+<span id="reporting-bugs"></span><h1>Dealing with Bugs<a class="headerlink" href="#dealing-with-bugs" title="Permalink to this headline">¶</a></h1>
+<p>Python is a mature programming language which has established a reputation for
+stability, but Tohil is new and somewhat immature.</p>
+<p>In order to become highly reliable, the Tohil developers would like to
+know of any deficiencies you find in it.</p>
+<p>It can be sometimes faster to fix bugs yourself and contribute patches to
+Tohil. This can be done through <a class="reference external" href="https://github.com/flightaware/tohil">https://github.com/flightaware/tohil</a>.</p>
+<div class="section" id="documentation-bugs">
+<h2>Documentation bugs<a class="headerlink" href="#documentation-bugs" title="Permalink to this headline">¶</a></h2>
+<p>If you find a bug in this documentation or would like to propose an improvement,
+please submit a bug report on aforelinked github site.  If you
+have a suggestion on how to fix it, include that as well.</p>
+</div>
+<div class="section" id="using-the-tohil-issue-tracker">
+<h2>Using the Tohil issue tracker<a class="headerlink" href="#using-the-tohil-issue-tracker" title="Permalink to this headline">¶</a></h2>
+<p>Please use Tohil’s issue tracker at <a class="reference external" href="https://github.com/flightaware/tohil/issues">https://github.com/flightaware/tohil/issues</a>.</p>
+</div>
+<div class="section" id="getting-started-contributing-to-tohil-yourself">
+<span id="contributing-to-tohil"></span><h2>Getting started contributing to Tohil yourself<a class="headerlink" href="#getting-started-contributing-to-tohil-yourself" title="Permalink to this headline">¶</a></h2>
+<p>Beyond just reporting bugs that you find, you are also welcome to submit
+patches to fix them.  We will review pull requests and work with you to
+get yours accepted, or something satisfactory, as long as what you are
+trying to do is reasonably aligned with how we think tohil should work.</p>
+<p>You can always fork it if you want to go off on your own direction.</p>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Dealing with Bugs</a><ul>
+<li><a class="reference internal" href="#documentation-bugs">Documentation bugs</a></li>
+<li><a class="reference internal" href="#using-the-tohil-issue-tracker">Using the Tohil issue tracker</a></li>
+<li><a class="reference internal" href="#getting-started-contributing-to-tohil-yourself">Getting started contributing to Tohil yourself</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="about.html"
+                        title="previous chapter">About these documents</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="license.html"
+                        title="next chapter">Copyright and License</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="#">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/master/Doc/bugs.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="license.html" title="Copyright and License"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="about.html" title="About these documents"
+             >previous</a> |</li>
+
+          <li><img src="_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://github.com/flightaware/tohil">Tohil</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="index.html">4.0 Documentation</a> &#187;
+    </li>
+
+        <li class="nav-item nav-item-this"><a href="">Dealing with Bugs</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="copyright.html">Copyright</a> 2014, Aidan Hobson Sayers, 2021-2021, FlightAware LLC.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on May 28, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+
+  </body>
+</html>

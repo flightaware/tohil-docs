@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What’s New In Tohil 3.2 &#8212; Tohil 4.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    
+    <script src="../_static/sidebar.js"></script>
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Tohil 4.0 documentation"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="What’s New In Tohil 3.0" href="3.0.html" />
+    <link rel="prev" title="What’s New In Tohil 4.0" href="4.0.html" />
+    <link rel="canonical" href="https://docs.python.org/3/whatsnew/3.2.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link rel="shortcut icon" type="image/png" href="../_static/tohil.png" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://github.com/flightaware/tohil" class="nav-logo">
+             <img src="../_static/tohil.png" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What’s New In Tohil 3.2</a><ul>
+<li><a class="reference internal" href="#tclobjs">tclobjs</a></li>
+<li><a class="reference internal" href="#tclobj-shadow-vars">Tclobj Shadow Vars</a></li>
+<li><a class="reference internal" href="#tcldicts">Tcldicts</a></li>
+<li><a class="reference internal" href="#shadowdicts">ShadowDicts</a></li>
+<li><a class="reference internal" href="#python-exception-improvements">Python exception improvements</a></li>
+<li><a class="reference internal" href="#tohil-method-improvements-and-changes">Tohil method improvements and changes</a></li>
+<li><a class="reference internal" href="#testing-improvements">Testing Improvements</a></li>
+<li><a class="reference internal" href="#build-improvements">Build Improvements</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="4.0.html"
+                        title="previous chapter">What’s New In Tohil 4.0</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="3.0.html"
+                        title="next chapter">What’s New In Tohil 3.0</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/master/Doc/whatsnew/3.2.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="3.0.html" title="What’s New In Tohil 3.0"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="4.0.html" title="What’s New In Tohil 4.0"
+             accesskey="P">previous</a> |</li>
+
+          <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://github.com/flightaware/tohil">Tohil</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">4.0 Documentation</a> &#187;
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">What’s New in Tohil</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">What’s New In Tohil 3.2</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="what-s-new-in-tohil-3-2">
+<h1>What’s New In Tohil 3.2<a class="headerlink" href="#what-s-new-in-tohil-3-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tclobjs">
+<h2>tclobjs<a class="headerlink" href="#tclobjs" title="Permalink to this headline">¶</a></h2>
+<p>Tohil Tcl objects, tclobjs, are a data type Tohil creates in Python.
+Tclobjs have gained considerable new power.  Among them, they now
+implement the number protocol.</p>
+<p>This means tclobjs can be used for number in numeric calculations
+without needing to pass through int() or float().</p>
+<p>Testing of tclobjs for boolean value now provides tcl
+semantics.  ‘f’, ‘F’, ‘n’, ‘N’, 0, substrings case-insentiviely
+matching “false” or “no”, evaluate as false; ‘t’, ‘T’, ‘y’, ‘Y’, any
+number of than 0, substrings matching “true” or “yes”, evaulate true.</p>
+<p>Tclobjs can be used as one or both operands for addition, subtraction,
+multiplication, division, remainder, divmod,
+bitwise or, and, xor, left shift, right shift, etc.  Unary ops invert,
+negative, position, absolute value all work.</p>
+<p>Tclobjs can be used for “inplace” number calculations such as +=, /=, &lt;&lt;=, etc.</p>
+<p>Tclobj iterator code was rewritten from Python into C.</p>
+<p>Removed almost all of the <em>as_</em>” methods of tclobjs that convert tclobjs
+into various Python data types.  <em>tclobj.as_int()</em> has been replaced by
+<em>int(tclobj)</em>, <em>as_bool</em> by <em>bool()</em>, <em>as_float</em> by <em>float()</em>,
+<em>as_str</em> by <em>str()</em>.  <em>llength()</em> has been removed; you can use <em>len()</em>
+to get the same thing.</p>
+<p>Removed tclobj’s <em>as_tuple()</em> method; use tuple(tclobj) instead.
+Likewise removed <em>as_tclobj()</em> method; use tohil.tclobi(tclobj) instead.
+Remove <em>as_tcldict()</em> ; use tohil.tcldict(tclobj) instead.</p>
+<p>What’s cool is these functions are provided by the tclobj type
+implementation, so that are real efficient
+in terms of how they interact with the underlying Tcl objects.</p>
+<p>The <em>tclobj.reset()</em> method has been renamed to <em>clear()</em> for consistency
+with Python lists and dicts.  It also works for tcldicts.</p>
+<p>Tclobj <em>lappend</em> method has been renamed to <em>append</em> and <em>lappend_list</em>
+renamed to <em>extend</em>, for compatibility with Python’s lists.</p>
+<ul class="simple">
+<li><p>tclobjs can now ingest python sets (in addition to lists, tuples, etc,
+which it already could do.)</p></li>
+</ul>
+</div>
+<div class="section" id="tclobj-shadow-vars">
+<h2>Tclobj Shadow Vars<a class="headerlink" href="#tclobj-shadow-vars" title="Permalink to this headline">¶</a></h2>
+<p>Another new feature, Tclobj shadow vars, <cite>t = tohil.tclvar(‘t’)</cite>, makes <em>t</em> a
+tclobj that shadows a variable <em>t</em> in the Tcl interpreter.  Any changes to the
+variable from the Tcl side are “seen” from the Python side, and vice versa.
+The variable can also be an array element.</p>
+</div>
+<div class="section" id="tcldicts">
+<h2>Tcldicts<a class="headerlink" href="#tcldicts" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Tcldict objects now provide many methods that standard Python dicts
+provide, such as keys(), values(), items().  Because of this,
+dict(tcldict) now works.</p></li>
+<li><p>The clear() method is now supported to empty the Tcl dict.</p></li>
+<li><p>A new tcldict <em>pop</em> method behaves the same as pop for standard Python dicts,
+popping the last item in the list if no position is specified, else popping
+the specified position, i.e. removing it from the list and returning it.</p></li>
+<li><p>A new <em>.insert(i, x)</em> method will insert item x at position i.</p></li>
+</ul>
+</div>
+<div class="section" id="shadowdicts">
+<h2>ShadowDicts<a class="headerlink" href="#shadowdicts" title="Permalink to this headline">¶</a></h2>
+<p>ShadowDicts implement many additional methods implemented by standard
+Python dicts.</p>
+<p>ShadowDicts now have a <em>get</em> method that behaves as standard dicts do.
+A new <em>clear</em> method removes all items from the shadow diction, i.e. it
+unsets the shadowed Tcl array.</p>
+</div>
+<div class="section" id="python-exception-improvements">
+<h2>Python exception improvements<a class="headerlink" href="#python-exception-improvements" title="Permalink to this headline">¶</a></h2>
+<p>We now raise more standard Python TypeError, KeyError and ValueError exceptions
+in places where we used to just raise RuntimeError.</p>
+</div>
+<div class="section" id="tohil-method-improvements-and-changes">
+<h2>Tohil method improvements and changes<a class="headerlink" href="#tohil-method-improvements-and-changes" title="Permalink to this headline">¶</a></h2>
+<p>Tohil.unset can now take an arbitrary number of arguments of variable names
+and array elements to unset, include zero.  As before, it is fine to unset
+something that doesn’t exist.</p>
+</div>
+<div class="section" id="testing-improvements">
+<h2>Testing Improvements<a class="headerlink" href="#testing-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Lots of new tests.</p></li>
+<li><p>Also we’re now using the hypothesis testing framework and have found
+and fixed a number of problems because of it.</p></li>
+<li><p>All tests pass now on 32-bit ARM Linux.</p></li>
+<li><p>Linux CI automated testing using Github Actions</p></li>
+</ul>
+</div>
+<div class="section" id="build-improvements">
+<h2>Build Improvements<a class="headerlink" href="#build-improvements" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What’s New In Tohil 3.2</a><ul>
+<li><a class="reference internal" href="#tclobjs">tclobjs</a></li>
+<li><a class="reference internal" href="#tclobj-shadow-vars">Tclobj Shadow Vars</a></li>
+<li><a class="reference internal" href="#tcldicts">Tcldicts</a></li>
+<li><a class="reference internal" href="#shadowdicts">ShadowDicts</a></li>
+<li><a class="reference internal" href="#python-exception-improvements">Python exception improvements</a></li>
+<li><a class="reference internal" href="#tohil-method-improvements-and-changes">Tohil method improvements and changes</a></li>
+<li><a class="reference internal" href="#testing-improvements">Testing Improvements</a></li>
+<li><a class="reference internal" href="#build-improvements">Build Improvements</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="4.0.html"
+                        title="previous chapter">What’s New In Tohil 4.0</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="3.0.html"
+                        title="next chapter">What’s New In Tohil 3.0</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/master/Doc/whatsnew/3.2.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="3.0.html" title="What’s New In Tohil 3.0"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="4.0.html" title="What’s New In Tohil 4.0"
+             >previous</a> |</li>
+
+          <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://github.com/flightaware/tohil">Tohil</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">4.0 Documentation</a> &#187;
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >What’s New in Tohil</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">What’s New In Tohil 3.2</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2014, Aidan Hobson Sayers, 2021-2021, FlightAware LLC.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on May 28, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+
+  </body>
+</html>

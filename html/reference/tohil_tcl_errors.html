@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tohil Tcl Errors &#8212; Tohil 4.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    
+    <script src="../_static/sidebar.js"></script>
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Tohil 4.0 documentation"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="About these documents" href="../about.html" />
+    <link rel="prev" title="Tohil Exceptions" href="tohil_exceptions.html" />
+    <link rel="canonical" href="https://docs.python.org/3/reference/tohil_tcl_errors.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link rel="shortcut icon" type="image/png" href="../_static/tohil.png" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://github.com/flightaware/tohil" class="nav-logo">
+             <img src="../_static/tohil.png" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tohil_exceptions.html"
+                        title="previous chapter">Tohil Exceptions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../about.html"
+                        title="next chapter">About these documents</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/master/Doc/reference/tohil_tcl_errors.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../about.html" title="About these documents"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tohil_exceptions.html" title="Tohil Exceptions"
+             accesskey="P">previous</a> |</li>
+
+          <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://github.com/flightaware/tohil">Tohil</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">4.0 Documentation</a> &#187;
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Tohil Library</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Tohil Tcl Errors</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tohil-tcl-errors">
+<span id="id1"></span><h1>Tohil Tcl Errors<a class="headerlink" href="#tohil-tcl-errors" title="Permalink to this headline">¶</a></h1>
+<p>If Python code invoked from Tcl using Tohil results in
+Python exception that is not trapped by any of the Python code, Tohil
+will trap the exception, translate it into a Tcl error, and propagate
+the error back through Tcl.</p>
+<p>If Tcl is being used interactively and the error isn’t caught, it will
+make its way to an error reported in the interactive session.</p>
+<p>Likewise if the Tcl error propagates all the way back to tohil due to
+Tcl code having been called from Python, the Tcl error will be propagated
+as a Python exception, see :ref:_tohil-exceptions.</p>
+<p>The Tcl stack trace will include the Python stack trace of the Python
+code that was executing at the time of the exception being raised.</p>
+<p>The Tcl error code, often referred to as the Tcl global <em>errorCode</em>,
+but also accessible via a Tcl dict created via an argument to
+Tcl’s <em>catch</em> or <em>try</em></p>
+<p>Tcl’s errorCode represents additional information about an error in the form
+of a Tcl list that is intended to be easy easy to process with programs, unlike,
+for instance, error messages, which may be localized into different languages
+and be difficult to interpret reliably using a program.</p>
+<p>The first element of the errorCode
+list identifies a general class of errors.  For Tcl errors generated by
+Tohil in response to uncaught Python exceptions, the first element of
+errorCode is set to <cite>PYTHON</cite>.</p>
+<p>The next element is the Python class name of the exception, followed
+by the base error message.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tohil</span><span class="o">.</span><span class="n">interact</span><span class="p">()</span>
+<span class="go">% tohil::exec missing_function</span>
+<span class="go">name &#39;missing_function&#39; is not defined</span>
+<span class="go">while evaluating tohil::exec missing_function</span>
+<span class="go">% puts $errorCode</span>
+<span class="go">PYTHON NameError {name &#39;missing_function&#39; is not defined}</span>
+<span class="go">% puts $errorInfo</span>
+<span class="go">name &#39;missing_function&#39; is not defined</span>
+<span class="go">from python code executed by tohil  File &quot;tohil&quot;, line 1, in &lt;module&gt;</span>
+<span class="go">    invoked from within</span>
+<span class="go">&quot;tohil::exec missing_function&quot;</span>
+<span class="go">    (&quot;eval&quot; body line 1)</span>
+<span class="go">    invoked from within</span>
+<span class="go">&quot;eval $::tclreadline::LINE&quot;</span>
+</pre></div>
+</div>
+<p>Here is another sample Tcl session catching an uncaught Python exception as a
+Tcl error, where the errorCode is set into the catch options var:</p>
+<blockquote>
+<div><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt;&gt;</span>
+<span class="go">$ tclsh</span>
+<span class="go">% package require tohil</span>
+<span class="go">3.2.0</span>
+<span class="go">% catch {tohil::eval &quot;no&quot;} catchResult catchDict</span>
+<span class="go">1</span>
+<span class="go">% puts $catchResult</span>
+<span class="go">name &#39;no&#39; is not defined</span>
+<span class="go">% puts [dict get $catchDict -errorcode]</span>
+<span class="go">PYTHON NameError {name &#39;no&#39; is not defined}</span>
+</pre></div>
+</div>
+<p>% puts $catchDict
+-code 1 -level 0 -errorstack {INNER {invokeStk1 tohil::eval no} UP 1} -errorcode {PYTHON NameError {name ‘no’ is not defined}} -errorinfo {name ‘no’ is not defined
+from python code executed by tohil  File “tohil”, line 1, in &lt;module&gt;
+invoked from within
+“tohil::eval “no””} -errorline 1</p>
+</div></blockquote>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tohil_exceptions.html"
+                        title="previous chapter">Tohil Exceptions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../about.html"
+                        title="next chapter">About these documents</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/master/Doc/reference/tohil_tcl_errors.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../about.html" title="About these documents"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tohil_exceptions.html" title="Tohil Exceptions"
+             >previous</a> |</li>
+
+          <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://github.com/flightaware/tohil">Tohil</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">4.0 Documentation</a> &#187;
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Tohil Library</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Tohil Tcl Errors</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2014, Aidan Hobson Sayers, 2021-2021, FlightAware LLC.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on May 28, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+
+  </body>
+</html>

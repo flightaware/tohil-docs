@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shadow Dictionaries &#8212; Tohil 4.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    
+    <script src="../_static/sidebar.js"></script>
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Tohil 4.0 documentation"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="The Tohil Library" href="../reference/index.html" />
+    <link rel="prev" title="Using Python From Tcl" href="tohil_tcl.html" />
+    <link rel="canonical" href="https://docs.python.org/3/tutorial/shadow_dicts.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link rel="shortcut icon" type="image/png" href="../_static/tohil.png" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://github.com/flightaware/tohil" class="nav-logo">
+             <img src="../_static/tohil.png" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tohil_tcl.html"
+                        title="previous chapter">Using Python From Tcl</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../reference/index.html"
+                        title="next chapter">The Tohil Library</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/master/Doc/tutorial/shadow_dicts.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../reference/index.html" title="The Tohil Library"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tohil_tcl.html" title="Using Python From Tcl"
+             accesskey="P">previous</a> |</li>
+
+          <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://github.com/flightaware/tohil">Tohil</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">4.0 Documentation</a> &#187;
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Tohil Tutorial</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Shadow Dictionaries</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="shadow-dictionaries">
+<span id="tutorial-shadow-dictionaries"></span><h1>Shadow Dictionaries<a class="headerlink" href="#shadow-dictionaries" title="Permalink to this headline">¶</a></h1>
+<p>Shadow Dictionaries, aka ShadowDicts, create a Python dict-like object that
+shadows a Tcl array.</p>
+<p>Tcl arrays are basically the Tcl equivalent of Python’s dicts, by the way.</p>
+<p>Let’s assume we have an array <em>x</em> in Tcl that we want to shadow as
+a dictionary <em>x</em> in Python, we would write <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">tohil.ShadowDict(&quot;x&quot;)</span></code>.</p>
+<p>If you just specify a variable name without any namespace qualifiers, the
+array references the current Tcl execution frame, like if a Tcl proc had
+called Python and in our Python we did the x equals thing for a shadow dict
+then the x array would exist in the proc’s frame.  In other words, the
+array is local to the caller on the Tcl side.</p>
+<p>If we’re invoking it not from Tcl code called from Python, just from Python
+or the top level of Python or whatever, then x is in the global (“::”)
+namespace.  You can always provide namespace qualifiers to identify the
+global or some subordinate namespace, like “::cryptolib::x”</p>
+<p>Once created, shadowdict elements can be gotten as a string using <em>str()</em>
+or <em>print()</em>, etc.</p>
+<p>Elements can be read form the Python side using dictionary notation,
+for example <cite>x[‘d’]</cite>, set in a standard way (<cite>x[‘e’] = ‘5’</cite>), and
+deleted in a standard way using <em>del</em> (<cite>del x[‘e’]</cite>).  Also you can
+iterate on the keys as with dicts.</p>
+<p>Changes made from the Python side occur on the Tcl side, and all accesses,
+traversals, etc, are made using the actual Tcl array.  In other words,
+ShadowDicts never cache values from the Tcl array on the Python side.</p>
+<p>In the example below we set up a Tcl array, create a ShadowDict of it
+in Python, get a string representation of the dict, read from the dict,
+insert into it, delete from it, and demonstrate that the changes we made
+are present on the Tcl side.  Finally, it iterates over the shadow dict,
+showing the same keys from Python that Tcl was shown to have.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tohil</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s2">&quot;array set x [list a 1 b 2 c 3 d 4]&quot;</span><span class="p">)</span>
+<span class="go">&lt;tohil.tclobj: &#39;&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">tohil</span><span class="o">.</span><span class="n">ShadowDict</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">{&#39;d&#39;: &#39;4&#39;, &#39;e&#39;: &#39;5&#39;, &#39;a&#39;: &#39;1&#39;, &#39;b&#39;: &#39;2&#39;, &#39;c&#39;: &#39;3&#39;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">]</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;5&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;e&#39;</span><span class="p">]</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tohil</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s2">&quot;parray x&quot;</span><span class="p">)</span>
+<span class="go">x(a) = 1</span>
+<span class="go">x(b) = 2</span>
+<span class="go">x(c) = 3</span>
+<span class="go">x(e) = 5</span>
+<span class="go">&lt;tohil.tclobj: &#39;&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">a</span>
+<span class="go">b</span>
+<span class="go">c</span>
+<span class="go">e</span>
+</pre></div>
+</div>
+<p>ShadowDict support many of the capabilties of regular python dicts.
+For example,
+<em>len(x)</em> will return the length of the shadow dict i.e. the size of the
+shadowed Tcl array.</p>
+<p><em>x.keys()</em> return the keys, <em>x.values()</em> returns the values,
+and <em>x.items()</em> returns the
+keys and items as a list of two-element tuples.  However, unlike
+regular Python dicts, they are not mutable, i.e. if you have captured
+a reference to x.keys() the contents of x.keys() does not change when
+the corresponding dict is changed.</p>
+<p><em>x.get(key)</em> will return the element of the array indexed by key if it
+exists, else it will raise a <em>KeyError</em> exception.  However if a named
+parameter, <em>default</em>, is specified with a value, in the event key is
+not found in x, the default value will be returned instead.</p>
+<p>Finally the <em>to=</em> named parameter can be used to specify a Python return
+type such as <em>list</em>, <em>set</em>, <em>dict</em>, <em>int</em>, <em>float</em>, <em>str</em>,
+<em>tohil.tclobj</em>, <em>tohil.tcldict</em>, etc.</p>
+<p><em>x.pop(key)</em>, if <em>key</em> is in the shadow dictionary, removes it and returns
+it.  A default value can be specified as an optional second argument.
+If a default is not specified and the key is not in the dictionary,
+a <em>KeyError</em> exception is raised.  As with so many other functions, the
+to= named parameter can be specified to state what data type you
+want the data returned to Python as.</p>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tohil_tcl.html"
+                        title="previous chapter">Using Python From Tcl</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../reference/index.html"
+                        title="next chapter">The Tohil Library</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/master/Doc/tutorial/shadow_dicts.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../reference/index.html" title="The Tohil Library"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tohil_tcl.html" title="Using Python From Tcl"
+             >previous</a> |</li>
+
+          <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://github.com/flightaware/tohil">Tohil</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">4.0 Documentation</a> &#187;
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Tohil Tutorial</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Shadow Dictionaries</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2014, Aidan Hobson Sayers, 2021-2021, FlightAware LLC.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on Jun 03, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+
+  </body>
+</html>

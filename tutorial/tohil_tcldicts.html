@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tohil’s Tcldict Python Data Type &#8212; Tohil 4.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5. Tohil’s Tcldict Python Data Type &#8212; Tohil 4.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
@@ -24,8 +24,8 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="Shadow Dictionaries" href="shadow_dicts.html" />
-    <link rel="prev" title="Tohil’s Tclobj Python Data Type" href="tohil_tclobjs.html" />
+    <link rel="next" title="6. TclProcs" href="tohil_tclprocs.html" />
+    <link rel="prev" title="4. Tohil’s Tclobj Python Data Type" href="tohil_tclobjs.html" />
     <link rel="canonical" href="https://docs.python.org/3/tutorial/tohil_tcldicts.html" />
     
       
@@ -70,25 +70,25 @@
             <div class="language_switcher_placeholder"></div>
   <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Tohil’s Tcldict Python Data Type</a><ul>
-<li><a class="reference internal" href="#accessing-elements-in-a-tcldict">Accessing Elements in a Tcldict</a></li>
-<li><a class="reference internal" href="#setting-values-into-a-tcldict">Setting Values into a Tcldict</a></li>
-<li><a class="reference internal" href="#get">get()</a></li>
-<li><a class="reference internal" href="#checking-for-existence">Checking for Existence</a></li>
-<li><a class="reference internal" href="#len">len()</a></li>
-<li><a class="reference internal" href="#removing-elements">Removing Elements</a></li>
-<li><a class="reference internal" href="#assembling-tcldicts-from-tcldicts-and-tclobjs">Assembling Tcldicts from Tcldicts and Tclobjs</a></li>
-<li><a class="reference internal" href="#iterators">iterators</a></li>
+<li><a class="reference internal" href="#">5. Tohil’s Tcldict Python Data Type</a><ul>
+<li><a class="reference internal" href="#accessing-elements-in-a-tcldict">5.1. Accessing Elements in a Tcldict</a></li>
+<li><a class="reference internal" href="#setting-values-into-a-tcldict">5.2. Setting Values into a Tcldict</a></li>
+<li><a class="reference internal" href="#get">5.3. get()</a></li>
+<li><a class="reference internal" href="#checking-for-existence">5.4. Checking for Existence</a></li>
+<li><a class="reference internal" href="#len">5.5. len()</a></li>
+<li><a class="reference internal" href="#removing-elements">5.6. Removing Elements</a></li>
+<li><a class="reference internal" href="#assembling-tcldicts-from-tcldicts-and-tclobjs">5.7. Assembling Tcldicts from Tcldicts and Tclobjs</a></li>
+<li><a class="reference internal" href="#iterators">5.8. iterators</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="tohil_tclobjs.html"
-                        title="previous chapter">Tohil’s Tclobj Python Data Type</a></p>
+                        title="previous chapter"><span class="section-number">4. </span>Tohil’s Tclobj Python Data Type</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="shadow_dicts.html"
-                        title="next chapter">Shadow Dictionaries</a></p>
+  <p class="topless"><a href="tohil_tclprocs.html"
+                        title="next chapter"><span class="section-number">6. </span>TclProcs</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -112,10 +112,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="shadow_dicts.html" title="Shadow Dictionaries"
+          <a href="tohil_tclprocs.html" title="6. TclProcs"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="tohil_tclobjs.html" title="Tohil’s Tclobj Python Data Type"
+          <a href="tohil_tclobjs.html" title="4. Tohil’s Tclobj Python Data Type"
              accesskey="P">previous</a> |</li>
 
           <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -132,7 +132,7 @@
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Tohil Tutorial</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Tohil’s Tcldict Python Data Type</a></li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">5. </span>Tohil’s Tcldict Python Data Type</a></li>
                 <li class="right">
                     
 
@@ -156,7 +156,7 @@
           <div class="body" role="main">
             
   <div class="section" id="tohil-s-tcldict-python-data-type">
-<span id="tutorial-tcldicts"></span><h1>Tohil’s Tcldict Python Data Type<a class="headerlink" href="#tohil-s-tcldict-python-data-type" title="Permalink to this headline">¶</a></h1>
+<span id="tutorial-tcldicts"></span><h1><span class="section-number">5. </span>Tohil’s Tcldict Python Data Type<a class="headerlink" href="#tohil-s-tcldict-python-data-type" title="Permalink to this headline">¶</a></h1>
 <p><em>Tcldicts</em> are Python-wrapped Tcl dictionaries.</p>
 <p>While they have the same internal structure as tclobjs (a Python object
 pointing to a Tcl object), tcldicts are a distinct data type in Python
@@ -168,7 +168,7 @@ dictionaries, which can also be hierarchies of key-value data.</p>
 </pre></div>
 </div>
 <div class="section" id="accessing-elements-in-a-tcldict">
-<h2>Accessing Elements in a Tcldict<a class="headerlink" href="#accessing-elements-in-a-tcldict" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1. </span>Accessing Elements in a Tcldict<a class="headerlink" href="#accessing-elements-in-a-tcldict" title="Permalink to this headline">¶</a></h2>
 <p>You can access elements using normal Python dict access techniques.</p>
 <p>For instance, <em>d[“a”]</em> returns 1, <em>d.get(‘a’)</em> does the same.
 With the “get” approach you can specify a <em>to=type</em> to control what Python
@@ -176,7 +176,7 @@ type is returned.  Also you can set the Python type returned by
 doing <code class="docutils literal notranslate"><span class="pre">d.to</span> <span class="pre">=</span> <span class="pre">type</span></code>.</p>
 </div>
 <div class="section" id="setting-values-into-a-tcldict">
-<h2>Setting Values into a Tcldict<a class="headerlink" href="#setting-values-into-a-tcldict" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.2. </span>Setting Values into a Tcldict<a class="headerlink" href="#setting-values-into-a-tcldict" title="Permalink to this headline">¶</a></h2>
 <p>Setting values will do a Tcl <em>dict set</em> on a tcldict.
 It takes a key and a value.
 The value can be one among a number of different Python objects.
@@ -205,7 +205,7 @@ can be specified, as in:</p>
 </div>
 </div>
 <div class="section" id="get">
-<h2>get()<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.3. </span>get()<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h2>
 <p>Likewise, <em>get</em> will accept a list of keys, treating the Tcl object as
 a nested tree of dictionaries, with inner dictionaries stored as values
 inside outer dictionaries.  It is an error to try to get a key that
@@ -226,19 +226,19 @@ will coerve the default value to the <em>to</em>-specified datatype, if
 possible, or an exception is raised if not.</p>
 </div>
 <div class="section" id="checking-for-existence">
-<h2>Checking for Existence<a class="headerlink" href="#checking-for-existence" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.4. </span>Checking for Existence<a class="headerlink" href="#checking-for-existence" title="Permalink to this headline">¶</a></h2>
 <p>You can do the usual Python <code class="docutils literal notranslate"><span class="pre">'a'</span> <span class="pre">in</span> <span class="pre">mydict</span></code> check for existence.</p>
 <p>The thing being checked for can be a list, in order to navigate
 a hierarchy of Tcl dictionaries.
 For example, <code class="docutils literal notranslate"><span class="pre">[&quot;airport&quot;,</span> <span class="pre">&quot;KHOU&quot;]</span> <span class="pre">in</span> <span class="pre">mydict</span></code></p>
 </div>
 <div class="section" id="len">
-<h2>len()<a class="headerlink" href="#len" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.5. </span>len()<a class="headerlink" href="#len" title="Permalink to this headline">¶</a></h2>
 <p><em>len(t)</em> returns the size of the Tcl dict, or throws an error if the contents
 of the object can’t be treated as a Tcl dict.</p>
 </div>
 <div class="section" id="removing-elements">
-<h2>Removing Elements<a class="headerlink" href="#removing-elements" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.6. </span>Removing Elements<a class="headerlink" href="#removing-elements" title="Permalink to this headline">¶</a></h2>
 <p>Standard <code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">t[key]</span></code> Python stuff.</p>
 <p><em>td_remove</em> can also accept a list of elements and in that case it will
 delete a hierarchy of subordinate Tcl dictionaries.  In the list case,
@@ -246,7 +246,7 @@ if more than one element is specified in the list, it is an error if
 any of the keys don’t exist.</p>
 </div>
 <div class="section" id="assembling-tcldicts-from-tcldicts-and-tclobjs">
-<h2>Assembling Tcldicts from Tcldicts and Tclobjs<a class="headerlink" href="#assembling-tcldicts-from-tcldicts-and-tclobjs" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.7. </span>Assembling Tcldicts from Tcldicts and Tclobjs<a class="headerlink" href="#assembling-tcldicts-from-tcldicts-and-tclobjs" title="Permalink to this headline">¶</a></h2>
 <p>You can create new tclobjs or tcldicts as the contents of sub-parts of
 dictionaries and use them as dictionaries in their own right, or whatever.</p>
 <p>Say you have a tcldict <em>t</em> containing a dictionary of elements, one of which,
@@ -265,7 +265,7 @@ dictionary to a point within another dictionary, simply by assigning
 a tclobj or tcldict that itself contains a dictionary.</p>
 </div>
 <div class="section" id="iterators">
-<h2>iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.8. </span>iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">¶</a></h2>
 <p>You can iterate over a tcldict with normal Python semantics.</p>
 <p>For example, something like:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">tohil</span><span class="o">.</span><span class="n">tcldict</span><span class="p">(</span><span class="s2">&quot;a 1 b 2 c 3 d 4 e 5 f 6&quot;</span><span class="p">)</span>
@@ -292,25 +292,25 @@ conversion.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Tohil’s Tcldict Python Data Type</a><ul>
-<li><a class="reference internal" href="#accessing-elements-in-a-tcldict">Accessing Elements in a Tcldict</a></li>
-<li><a class="reference internal" href="#setting-values-into-a-tcldict">Setting Values into a Tcldict</a></li>
-<li><a class="reference internal" href="#get">get()</a></li>
-<li><a class="reference internal" href="#checking-for-existence">Checking for Existence</a></li>
-<li><a class="reference internal" href="#len">len()</a></li>
-<li><a class="reference internal" href="#removing-elements">Removing Elements</a></li>
-<li><a class="reference internal" href="#assembling-tcldicts-from-tcldicts-and-tclobjs">Assembling Tcldicts from Tcldicts and Tclobjs</a></li>
-<li><a class="reference internal" href="#iterators">iterators</a></li>
+<li><a class="reference internal" href="#">5. Tohil’s Tcldict Python Data Type</a><ul>
+<li><a class="reference internal" href="#accessing-elements-in-a-tcldict">5.1. Accessing Elements in a Tcldict</a></li>
+<li><a class="reference internal" href="#setting-values-into-a-tcldict">5.2. Setting Values into a Tcldict</a></li>
+<li><a class="reference internal" href="#get">5.3. get()</a></li>
+<li><a class="reference internal" href="#checking-for-existence">5.4. Checking for Existence</a></li>
+<li><a class="reference internal" href="#len">5.5. len()</a></li>
+<li><a class="reference internal" href="#removing-elements">5.6. Removing Elements</a></li>
+<li><a class="reference internal" href="#assembling-tcldicts-from-tcldicts-and-tclobjs">5.7. Assembling Tcldicts from Tcldicts and Tclobjs</a></li>
+<li><a class="reference internal" href="#iterators">5.8. iterators</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="tohil_tclobjs.html"
-                        title="previous chapter">Tohil’s Tclobj Python Data Type</a></p>
+                        title="previous chapter"><span class="section-number">4. </span>Tohil’s Tclobj Python Data Type</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="shadow_dicts.html"
-                        title="next chapter">Shadow Dictionaries</a></p>
+  <p class="topless"><a href="tohil_tclprocs.html"
+                        title="next chapter"><span class="section-number">6. </span>TclProcs</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -333,10 +333,10 @@ conversion.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="shadow_dicts.html" title="Shadow Dictionaries"
+          <a href="tohil_tclprocs.html" title="6. TclProcs"
              >next</a> |</li>
         <li class="right" >
-          <a href="tohil_tclobjs.html" title="Tohil’s Tclobj Python Data Type"
+          <a href="tohil_tclobjs.html" title="4. Tohil’s Tclobj Python Data Type"
              >previous</a> |</li>
 
           <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -353,7 +353,7 @@ conversion.</p>
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Tohil Tutorial</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Tohil’s Tcldict Python Data Type</a></li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">5. </span>Tohil’s Tcldict Python Data Type</a></li>
                 <li class="right">
                     
 

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Tohil Tutorial &#8212; Tohil 4.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6. TclProcs &#8212; Tohil 4.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
@@ -24,9 +24,9 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="1. The Tohil Tutorial" href="intro.html" />
-    <link rel="prev" title="What’s New In Tohil 3.0" href="../whatsnew/3.0.html" />
-    <link rel="canonical" href="https://docs.python.org/3/tutorial/index.html" />
+    <link rel="next" title="7. Shadow Dictionaries" href="shadow_dicts.html" />
+    <link rel="prev" title="5. Tohil’s Tcldict Python Data Type" href="tohil_tcldicts.html" />
+    <link rel="canonical" href="https://docs.python.org/3/tutorial/tohil_tclprocs.html" />
     
       
     
@@ -69,17 +69,17 @@
         <nav class="menu" role="navigation" aria-label="main navigation">
             <div class="language_switcher_placeholder"></div>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../whatsnew/3.0.html"
-                        title="previous chapter">What’s New In Tohil 3.0</a></p>
+  <p class="topless"><a href="tohil_tcldicts.html"
+                        title="previous chapter"><span class="section-number">5. </span>Tohil’s Tcldict Python Data Type</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="intro.html"
-                        title="next chapter"><span class="section-number">1. </span>The Tohil Tutorial</a></p>
+  <p class="topless"><a href="shadow_dicts.html"
+                        title="next chapter"><span class="section-number">7. </span>Shadow Dictionaries</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/tutorial/index.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/tutorial/tohil_tclprocs.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -97,10 +97,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="intro.html" title="1. The Tohil Tutorial"
+          <a href="shadow_dicts.html" title="7. Shadow Dictionaries"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../whatsnew/3.0.html" title="What’s New In Tohil 3.0"
+          <a href="tohil_tcldicts.html" title="5. Tohil’s Tcldict Python Data Type"
              accesskey="P">previous</a> |</li>
 
           <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -116,7 +116,8 @@
       <a href="../index.html">4.0 Documentation</a> &#187;
     </li>
 
-        <li class="nav-item nav-item-this"><a href="">The Tohil Tutorial</a></li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Tohil Tutorial</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">6. </span>TclProcs</a></li>
                 <li class="right">
                     
 
@@ -139,18 +140,47 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="the-tohil-tutorial">
-<span id="tutorial-index"></span><h1>The Tohil Tutorial<a class="headerlink" href="#the-tohil-tutorial" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="intro.html">1. The Tohil Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tohil_python.html">2. Using Tcl from Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tohil_tcl.html">3. Using Python From Tcl</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tohil_tclobjs.html">4. Tohil’s Tclobj Python Data Type</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tohil_tcldicts.html">5. Tohil’s Tcldict Python Data Type</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tohil_tclprocs.html">6. TclProcs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shadow_dicts.html">7. Shadow Dictionaries</a></li>
-</ul>
+  <div class="section" id="tclprocs">
+<h1><span class="section-number">6. </span>TclProcs<a class="headerlink" href="#tclprocs" title="Permalink to this headline">¶</a></h1>
+<p>TclProcs brings the integration of Tcl functions into Python to a new
+level of transparency, simplicity and versatility.  Using TclProcs,
+Most Tcl procs
+now look and behave just like Python functions in most cases.</p>
+<p>Using Tcl’s introspection capabilities, tohil traverses a hierarchy
+of Tcl namespaces, identifying all the procs and C-commands in each one,
+and for the procs, sussing out their arguments and default values,
+and stashing it so that we can create entrypoints for all of the
+Tcl procs in Python to invoke Tohil’s trampoline function to call
+the Tcl proc and return the result.</p>
+<p>It’s awesome!</p>
+<p>While tohil can’t determine arguments and defaults for Tcl commands
+that are implemented in C, Tohil still makes entrypoints for them,
+making them available from Python.  Since many Tcl commands and
+extensions are implemented in C and provide their functionality
+with a hybrid of Tcl procs and C commands, wrapping the C functions
+can be important for providing a way for Python to have access to
+everything such a package provides.</p>
+<p><code class="docutils literal notranslate"><span class="pre">tohil.import_tcl()</span></code> returns a TclNamespace object corresponding to whatever
+namespace you point it at (“::” is a good one), and all of the procs and
+commands found in that namespace are defined as methods of the TclNamespace
+object, and can be executed as such methods.  It’s very natural and pythonic.</p>
+<p>This means you can do stuff like:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tohil</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">tohil</span><span class="o">.</span><span class="n">import_namespace</span><span class="p">(</span><span class="s2">&quot;::&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>…and then invoke top level procs like k.intersect3().
+And you can chain namespaces.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tohil</span><span class="o">.</span><span class="n">package_require</span><span class="p">(</span><span class="s2">&quot;Tclx&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="n">tohil</span><span class="o">.</span><span class="n">import_tcl</span><span class="p">()</span>
+<span class="go">list1 = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]</span>
+<span class="go">list1 = [&quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;]</span>
+<span class="go">a_only, in_both, b_only = k.intersect3(list1, list2, to=tuple)</span>
+</pre></div>
+</div>
+<p>And the subordinate namespaces are created in there too, and they’re chainable too.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span><span class="o">.</span><span class="n">clock</span><span class="p">(</span><span class="s1">&#39;format&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">.</span><span class="n">clock</span><span class="p">(</span><span class="s2">&quot;seconds&quot;</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="n">seconds</span><span class="p">),</span> <span class="s2">&quot;-format&quot;</span><span class="p">,</span> <span class="s2">&quot;%D %T&quot;</span><span class="p">,</span> <span class="s2">&quot;-gmt&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 
@@ -162,17 +192,17 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../whatsnew/3.0.html"
-                        title="previous chapter">What’s New In Tohil 3.0</a></p>
+  <p class="topless"><a href="tohil_tcldicts.html"
+                        title="previous chapter"><span class="section-number">5. </span>Tohil’s Tcldict Python Data Type</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="intro.html"
-                        title="next chapter"><span class="section-number">1. </span>The Tohil Tutorial</a></p>
+  <p class="topless"><a href="shadow_dicts.html"
+                        title="next chapter"><span class="section-number">7. </span>Shadow Dictionaries</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/tutorial/index.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/tutorial/tohil_tclprocs.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -189,10 +219,10 @@
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="intro.html" title="1. The Tohil Tutorial"
+          <a href="shadow_dicts.html" title="7. Shadow Dictionaries"
              >next</a> |</li>
         <li class="right" >
-          <a href="../whatsnew/3.0.html" title="What’s New In Tohil 3.0"
+          <a href="tohil_tcldicts.html" title="5. Tohil’s Tcldict Python Data Type"
              >previous</a> |</li>
 
           <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -208,7 +238,8 @@
       <a href="../index.html">4.0 Documentation</a> &#187;
     </li>
 
-        <li class="nav-item nav-item-this"><a href="">The Tohil Tutorial</a></li>
+          <li class="nav-item nav-item-1"><a href="index.html" >The Tohil Tutorial</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">6. </span>TclProcs</a></li>
                 <li class="right">
                     
 

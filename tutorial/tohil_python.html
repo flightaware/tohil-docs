@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Using Tcl from Python &#8212; Tohil 4.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Using Tcl from Python &#8212; Tohil 4.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
@@ -24,8 +24,8 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="Using Python From Tcl" href="tohil_tcl.html" />
-    <link rel="prev" title="The Tohil Tutorial" href="intro.html" />
+    <link rel="next" title="3. Using Python From Tcl" href="tohil_tcl.html" />
+    <link rel="prev" title="1. The Tohil Tutorial" href="intro.html" />
     <link rel="canonical" href="https://docs.python.org/3/tutorial/tohil_python.html" />
     
       
@@ -70,28 +70,28 @@
             <div class="language_switcher_placeholder"></div>
   <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Using Tcl from Python</a><ul>
-<li><a class="reference internal" href="#tohil-eval">tohil.eval</a></li>
-<li><a class="reference internal" href="#helper-functions">helper functions</a></li>
-<li><a class="reference internal" href="#tohil-call">tohil.call</a></li>
-<li><a class="reference internal" href="#tohil-expr">tohil.expr</a></li>
-<li><a class="reference internal" href="#tohil-getvar-and-tohil-setvar">tohil.getvar and tohil.setvar</a></li>
-<li><a class="reference internal" href="#tohil-exists">tohil.exists</a></li>
-<li><a class="reference internal" href="#tohil-incr">tohil.incr</a></li>
-<li><a class="reference internal" href="#tohil-unset">tohil.unset</a></li>
-<li><a class="reference internal" href="#tohil-subst">tohil.subst</a></li>
-<li><a class="reference internal" href="#tohil-convert">tohil.convert</a></li>
-<li><a class="reference internal" href="#tohil-interact">tohil.interact</a></li>
+<li><a class="reference internal" href="#">2. Using Tcl from Python</a><ul>
+<li><a class="reference internal" href="#tohil-eval">2.1. tohil.eval</a></li>
+<li><a class="reference internal" href="#helper-functions">2.2. helper functions</a></li>
+<li><a class="reference internal" href="#tohil-call">2.3. tohil.call</a></li>
+<li><a class="reference internal" href="#tohil-expr">2.4. tohil.expr</a></li>
+<li><a class="reference internal" href="#tohil-getvar-and-tohil-setvar">2.5. tohil.getvar and tohil.setvar</a></li>
+<li><a class="reference internal" href="#tohil-exists">2.6. tohil.exists</a></li>
+<li><a class="reference internal" href="#tohil-incr">2.7. tohil.incr</a></li>
+<li><a class="reference internal" href="#tohil-unset">2.8. tohil.unset</a></li>
+<li><a class="reference internal" href="#tohil-subst">2.9. tohil.subst</a></li>
+<li><a class="reference internal" href="#tohil-convert">2.10. tohil.convert</a></li>
+<li><a class="reference internal" href="#tohil-interact">2.11. tohil.interact</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="intro.html"
-                        title="previous chapter">The Tohil Tutorial</a></p>
+                        title="previous chapter"><span class="section-number">1. </span>The Tohil Tutorial</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="tohil_tcl.html"
-                        title="next chapter">Using Python From Tcl</a></p>
+                        title="next chapter"><span class="section-number">3. </span>Using Python From Tcl</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -115,10 +115,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="tohil_tcl.html" title="Using Python From Tcl"
+          <a href="tohil_tcl.html" title="3. Using Python From Tcl"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="intro.html" title="The Tohil Tutorial"
+          <a href="intro.html" title="1. The Tohil Tutorial"
              accesskey="P">previous</a> |</li>
 
           <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -135,7 +135,7 @@
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Tohil Tutorial</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Using Tcl from Python</a></li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">2. </span>Using Tcl from Python</a></li>
                 <li class="right">
                     
 
@@ -159,12 +159,12 @@
           <div class="body" role="main">
             
   <div class="section" id="using-tcl-from-python">
-<span id="tutorial-tcl-from-python"></span><h1>Using Tcl from Python<a class="headerlink" href="#using-tcl-from-python" title="Permalink to this headline">¶</a></h1>
+<span id="tutorial-tcl-from-python"></span><h1><span class="section-number">2. </span>Using Tcl from Python<a class="headerlink" href="#using-tcl-from-python" title="Permalink to this headline">¶</a></h1>
 <p>Here we’ll introduce using Tcl from Python.</p>
 <p>Hopefully you’ve got Tcl and Python and Tohil installed and you can
 follow along and try stuff out.</p>
 <div class="section" id="tohil-eval">
-<h2>tohil.eval<a class="headerlink" href="#tohil-eval" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.1. </span>tohil.eval<a class="headerlink" href="#tohil-eval" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">tohil</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tohil</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s1">&#39;puts &quot;Hello, world.&quot;&#39;</span><span class="p">)</span>
 <span class="go">Hello, world.</span>
@@ -189,7 +189,7 @@ time in the Spanish locale:</p>
 </div>
 </div>
 <div class="section" id="helper-functions">
-<h2>helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2. </span>helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
 <p>We can load in Tcl packages by doing</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tohil</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s1">&#39;package require Tclx&#39;</span><span class="p">)</span>
 </pre></div>
@@ -219,7 +219,7 @@ we provide the slightly less paper-cutty…</p>
 </div>
 </div>
 <div class="section" id="tohil-call">
-<h2>tohil.call<a class="headerlink" href="#tohil-call" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3. </span>tohil.call<a class="headerlink" href="#tohil-call" title="Permalink to this headline">¶</a></h2>
 <p>You get fancy and start using f-strings to create Tcl commands with
 arguments, maybe you’re doing something like</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">tohil</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;register_user </span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">user_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">user_fullname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -245,7 +245,7 @@ to <code class="docutils literal notranslate"><span class="pre">tohil.eval(f&quo
 risk of inadvertent misinterpretation of arguments.</p>
 </div>
 <div class="section" id="tohil-expr">
-<h2>tohil.expr<a class="headerlink" href="#tohil-expr" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.4. </span>tohil.expr<a class="headerlink" href="#tohil-expr" title="Permalink to this headline">¶</a></h2>
 <p>You can also evaluate Tcl expressions from Python using <em>tohil.expr</em>.
 As with many other tohil functions, to= can be used to request conversion to a
 specific Python datatype.</p>
@@ -267,7 +267,7 @@ specific Python datatype.</p>
 </div>
 </div>
 <div class="section" id="tohil-getvar-and-tohil-setvar">
-<h2>tohil.getvar and tohil.setvar<a class="headerlink" href="#tohil-getvar-and-tohil-setvar" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.5. </span>tohil.getvar and tohil.setvar<a class="headerlink" href="#tohil-getvar-and-tohil-setvar" title="Permalink to this headline">¶</a></h2>
 <p>Python has direct access to Tcl variables and array elements
 using <em>tohil.getvar</em>.  Likewise, <em>tohil.setvar</em> can set them.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span> <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">tohil</span>
@@ -306,7 +306,7 @@ exists, or trap the Python exception, or make use of <em>tohil.getvar</em>’s h
 </div>
 </div>
 <div class="section" id="tohil-exists">
-<h2>tohil.exists<a class="headerlink" href="#tohil-exists" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.6. </span>tohil.exists<a class="headerlink" href="#tohil-exists" title="Permalink to this headline">¶</a></h2>
 <p>You can use <em>tohil.exists</em> to see if a variable or array element exists:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tohil</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s2">&quot;array set x [list a 1 b 2 c 3 d 4]&quot;</span><span class="p">)</span>
 <span class="go">&#39;&#39;</span>
@@ -321,7 +321,7 @@ exists, or trap the Python exception, or make use of <em>tohil.getvar</em>’s h
 </div>
 </div>
 <div class="section" id="tohil-incr">
-<h2>tohil.incr<a class="headerlink" href="#tohil-incr" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.7. </span>tohil.incr<a class="headerlink" href="#tohil-incr" title="Permalink to this headline">¶</a></h2>
 <p><em>tohil.incr</em> takes a Tcl variable name or array element and attempts
 to increment it.</p>
 <p>If the contents of the variable preclude it being used as an int, a Python
@@ -338,7 +338,7 @@ a keyword argument, using “incr”.</p>
 </div>
 </div>
 <div class="section" id="tohil-unset">
-<h2>tohil.unset<a class="headerlink" href="#tohil-unset" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.8. </span>tohil.unset<a class="headerlink" href="#tohil-unset" title="Permalink to this headline">¶</a></h2>
 <p><em>tohil.unset</em> can be used to unset variables, array elements, and even entire
 arrays in the Tcl interpreter.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tohil</span><span class="o">.</span><span class="n">setvar</span><span class="p">(</span><span class="s2">&quot;x(e)&quot;</span><span class="p">,</span> <span class="s2">&quot;5&quot;</span><span class="p">)</span>
@@ -360,7 +360,7 @@ arrays in the Tcl interpreter.</p>
 </ul>
 </div>
 <div class="section" id="tohil-subst">
-<h2>tohil.subst<a class="headerlink" href="#tohil-subst" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.9. </span>tohil.subst<a class="headerlink" href="#tohil-subst" title="Permalink to this headline">¶</a></h2>
 <p>Tcl’s <em>subst</em> command is pretty cool.  By default it performs Tcl backslash,
 command and variable substitutions, but doesn’t evaluate the final result,
 like <em>eval</em> would.  So it’s handy for generating some kind of string, but
@@ -374,14 +374,14 @@ with embedded $-substitution and square bracket evaluation.</p>
 </div>
 </div>
 <div class="section" id="tohil-convert">
-<h2>tohil.convert<a class="headerlink" href="#tohil-convert" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.10. </span>tohil.convert<a class="headerlink" href="#tohil-convert" title="Permalink to this headline">¶</a></h2>
 <p><em>tohil.convert</em> will convert some Python thing passed to it, into a Tcl
 object, and then back to some other Python type,
 any type supported in accordance with the to= argument.</p>
 <p>The “to=” way of requesting a type conversion is supported.  Although you might not care about converting to int or float or something, you might want a tohil.tclobj for your efforts, anirite?</p>
 </div>
 <div class="section" id="tohil-interact">
-<h2>tohil.interact<a class="headerlink" href="#tohil-interact" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.11. </span>tohil.interact<a class="headerlink" href="#tohil-interact" title="Permalink to this headline">¶</a></h2>
 <p>Run the Tcl interactive command loop on stdin, hopefully a terminal, until
 you send an EOF, at which point you’ll be returned to the Python command
 line.  See also <em>tohil::interact</em>.</p>
@@ -404,28 +404,28 @@ tclvar</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Using Tcl from Python</a><ul>
-<li><a class="reference internal" href="#tohil-eval">tohil.eval</a></li>
-<li><a class="reference internal" href="#helper-functions">helper functions</a></li>
-<li><a class="reference internal" href="#tohil-call">tohil.call</a></li>
-<li><a class="reference internal" href="#tohil-expr">tohil.expr</a></li>
-<li><a class="reference internal" href="#tohil-getvar-and-tohil-setvar">tohil.getvar and tohil.setvar</a></li>
-<li><a class="reference internal" href="#tohil-exists">tohil.exists</a></li>
-<li><a class="reference internal" href="#tohil-incr">tohil.incr</a></li>
-<li><a class="reference internal" href="#tohil-unset">tohil.unset</a></li>
-<li><a class="reference internal" href="#tohil-subst">tohil.subst</a></li>
-<li><a class="reference internal" href="#tohil-convert">tohil.convert</a></li>
-<li><a class="reference internal" href="#tohil-interact">tohil.interact</a></li>
+<li><a class="reference internal" href="#">2. Using Tcl from Python</a><ul>
+<li><a class="reference internal" href="#tohil-eval">2.1. tohil.eval</a></li>
+<li><a class="reference internal" href="#helper-functions">2.2. helper functions</a></li>
+<li><a class="reference internal" href="#tohil-call">2.3. tohil.call</a></li>
+<li><a class="reference internal" href="#tohil-expr">2.4. tohil.expr</a></li>
+<li><a class="reference internal" href="#tohil-getvar-and-tohil-setvar">2.5. tohil.getvar and tohil.setvar</a></li>
+<li><a class="reference internal" href="#tohil-exists">2.6. tohil.exists</a></li>
+<li><a class="reference internal" href="#tohil-incr">2.7. tohil.incr</a></li>
+<li><a class="reference internal" href="#tohil-unset">2.8. tohil.unset</a></li>
+<li><a class="reference internal" href="#tohil-subst">2.9. tohil.subst</a></li>
+<li><a class="reference internal" href="#tohil-convert">2.10. tohil.convert</a></li>
+<li><a class="reference internal" href="#tohil-interact">2.11. tohil.interact</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="intro.html"
-                        title="previous chapter">The Tohil Tutorial</a></p>
+                        title="previous chapter"><span class="section-number">1. </span>The Tohil Tutorial</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="tohil_tcl.html"
-                        title="next chapter">Using Python From Tcl</a></p>
+                        title="next chapter"><span class="section-number">3. </span>Using Python From Tcl</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -448,10 +448,10 @@ tclvar</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="tohil_tcl.html" title="Using Python From Tcl"
+          <a href="tohil_tcl.html" title="3. Using Python From Tcl"
              >next</a> |</li>
         <li class="right" >
-          <a href="intro.html" title="The Tohil Tutorial"
+          <a href="intro.html" title="1. The Tohil Tutorial"
              >previous</a> |</li>
 
           <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -468,7 +468,7 @@ tclvar</p>
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Tohil Tutorial</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Using Tcl from Python</a></li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">2. </span>Using Tcl from Python</a></li>
                 <li class="right">
                     
 

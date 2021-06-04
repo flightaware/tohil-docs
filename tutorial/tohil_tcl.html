@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Using Python From Tcl &#8212; Tohil 4.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. Using Python From Tcl &#8212; Tohil 4.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
@@ -24,8 +24,8 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="Tohil’s Tclobj Python Data Type" href="tohil_tclobjs.html" />
-    <link rel="prev" title="Using Tcl from Python" href="tohil_python.html" />
+    <link rel="next" title="4. Tohil’s Tclobj Python Data Type" href="tohil_tclobjs.html" />
+    <link rel="prev" title="2. Using Tcl from Python" href="tohil_python.html" />
     <link rel="canonical" href="https://docs.python.org/3/tutorial/tohil_tcl.html" />
     
       
@@ -70,25 +70,25 @@
             <div class="language_switcher_placeholder"></div>
   <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Using Python From Tcl</a><ul>
-<li><a class="reference internal" href="#tohil-eval">tohil::eval</a></li>
-<li><a class="reference internal" href="#tohil-exec">tohil::exec</a></li>
-<li><a class="reference internal" href="#tohil-import">tohil::import</a></li>
-<li><a class="reference internal" href="#notes-about-exec">notes about exec</a></li>
-<li><a class="reference internal" href="#tohil-run">tohil::run</a></li>
-<li><a class="reference internal" href="#tohil-call">tohil::call</a></li>
-<li><a class="reference internal" href="#tohil-interact">tohil::interact</a></li>
-<li><a class="reference internal" href="#using-tohil-from-rivet">Using tohil from Rivet</a></li>
+<li><a class="reference internal" href="#">3. Using Python From Tcl</a><ul>
+<li><a class="reference internal" href="#tohil-eval">3.1. tohil::eval</a></li>
+<li><a class="reference internal" href="#tohil-exec">3.2. tohil::exec</a></li>
+<li><a class="reference internal" href="#tohil-import">3.3. tohil::import</a></li>
+<li><a class="reference internal" href="#notes-about-exec">3.4. notes about exec</a></li>
+<li><a class="reference internal" href="#tohil-run">3.5. tohil::run</a></li>
+<li><a class="reference internal" href="#tohil-call">3.6. tohil::call</a></li>
+<li><a class="reference internal" href="#tohil-interact">3.7. tohil::interact</a></li>
+<li><a class="reference internal" href="#using-tohil-from-rivet">3.8. Using tohil from Rivet</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="tohil_python.html"
-                        title="previous chapter">Using Tcl from Python</a></p>
+                        title="previous chapter"><span class="section-number">2. </span>Using Tcl from Python</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="tohil_tclobjs.html"
-                        title="next chapter">Tohil’s Tclobj Python Data Type</a></p>
+                        title="next chapter"><span class="section-number">4. </span>Tohil’s Tclobj Python Data Type</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -112,10 +112,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="tohil_tclobjs.html" title="Tohil’s Tclobj Python Data Type"
+          <a href="tohil_tclobjs.html" title="4. Tohil’s Tclobj Python Data Type"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="tohil_python.html" title="Using Tcl from Python"
+          <a href="tohil_python.html" title="2. Using Tcl from Python"
              accesskey="P">previous</a> |</li>
 
           <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -132,7 +132,7 @@
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Tohil Tutorial</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Using Python From Tcl</a></li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3. </span>Using Python From Tcl</a></li>
                 <li class="right">
                     
 
@@ -156,7 +156,7 @@
           <div class="body" role="main">
             
   <div class="section" id="using-python-from-tcl">
-<span id="tutorial-python-from-tcl"></span><h1>Using Python From Tcl<a class="headerlink" href="#using-python-from-tcl" title="Permalink to this headline">¶</a></h1>
+<span id="tutorial-python-from-tcl"></span><h1><span class="section-number">3. </span>Using Python From Tcl<a class="headerlink" href="#using-python-from-tcl" title="Permalink to this headline">¶</a></h1>
 <p>In this section we’ll introduce using Python from Tcl.</p>
 <p>Hopefully you’ve got Tcl and Python and Tohil installed and you can
 follow along and try stuff out.</p>
@@ -171,7 +171,7 @@ follow along and try stuff out.</p>
 the installation instructions and get tohil built and installed
 on your computer.</p>
 <div class="section" id="tohil-eval">
-<h2>tohil::eval<a class="headerlink" href="#tohil-eval" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>tohil::eval<a class="headerlink" href="#tohil-eval" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">tohil</span><span class="p">::</span><span class="nb">eval</span> <span class="s2">&quot;37 + 5&quot;</span>
 <span class="mi">42</span>
 </pre></div>
@@ -186,7 +186,7 @@ and returned the result back to tcl.</p>
 </div>
 </div>
 <div class="section" id="tohil-exec">
-<h2>tohil::exec<a class="headerlink" href="#tohil-exec" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>tohil::exec<a class="headerlink" href="#tohil-exec" title="Permalink to this headline">¶</a></h2>
 <p>In Python, <em>eval</em> evaluates a single expression and returns the
 result, so even trying to eval something like <code class="docutils literal notranslate"><span class="pre">answer</span> <span class="pre">=</span> <span class="pre">42</span></code> is
 an error.  Python provides <em>exec</em>, which can evaluate an aribtrary
@@ -221,7 +221,7 @@ we used Python’s integer division <em>//</em> to get integer division, while
 trying that with Tcl was an error because Tcl doesn’t have that operator.</p>
 </div>
 <div class="section" id="tohil-import">
-<h2>tohil::import<a class="headerlink" href="#tohil-import" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>tohil::import<a class="headerlink" href="#tohil-import" title="Permalink to this headline">¶</a></h2>
 <p>OK, we can start doing Python stuff from Tcl, like import a module.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">tohil</span><span class="p">::</span><span class="n">exec</span> <span class="s2">&quot;import numpy&quot;</span>
 </pre></div>
@@ -232,7 +232,7 @@ trying that with Tcl was an error because Tcl doesn’t have that operator.</p>
 </div>
 </div>
 <div class="section" id="notes-about-exec">
-<h2>notes about exec<a class="headerlink" href="#notes-about-exec" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.4. </span>notes about exec<a class="headerlink" href="#notes-about-exec" title="Permalink to this headline">¶</a></h2>
 <p>One thing that can trip people up is it can be surprising that
 tohil::exec never returns anything.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">tohil</span><span class="p">::</span><span class="n">exec</span> <span class="s2">&quot;answer = 42&quot;</span>
@@ -249,13 +249,13 @@ eval and exec mechanisms at the C level to provide these capabilities
 to Tcl.</p>
 </div>
 <div class="section" id="tohil-run">
-<h2>tohil::run<a class="headerlink" href="#tohil-run" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.5. </span>tohil::run<a class="headerlink" href="#tohil-run" title="Permalink to this headline">¶</a></h2>
 <p>tohil::run is a special version of tohil::exec that grabs anything
 Python emits to stdout while the exec is running, and returns it
 to the caller.</p>
 </div>
 <div class="section" id="tohil-call">
-<h2>tohil::call<a class="headerlink" href="#tohil-call" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.6. </span>tohil::call<a class="headerlink" href="#tohil-call" title="Permalink to this headline">¶</a></h2>
 <p>If you start creating from Tcl, Python to be executed with
 eval and exec, you may notice there’s a risk that if you use
 substitute-in data, you know, such as names, addresses, cities
@@ -273,7 +273,7 @@ problems, accidental code execution, etc.</p>
 different from doing a tohil::exec “import module”</p>
 </div>
 <div class="section" id="tohil-interact">
-<h2>tohil::interact<a class="headerlink" href="#tohil-interact" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.7. </span>tohil::interact<a class="headerlink" href="#tohil-interact" title="Permalink to this headline">¶</a></h2>
 <p>Take tohil to eleven.  You’re on ten here… all the way up… You’re
 on ten on your guitar… where can you go from there?  Where?  Nowhere.
 Exactly.  What we do is if we need that extra… push over the cliff…
@@ -292,7 +292,7 @@ return to the Tcl one.</p>
 </div>
 </div>
 <div class="section" id="using-tohil-from-rivet">
-<h2>Using tohil from Rivet<a class="headerlink" href="#using-tohil-from-rivet" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.8. </span>Using tohil from Rivet<a class="headerlink" href="#using-tohil-from-rivet" title="Permalink to this headline">¶</a></h2>
 <p>Rivet is an Apache webserver module that provides among other things
 a way for webpages to be made from HTML files with embedded Tcl code
 that executes when the page is requested.</p>
@@ -326,25 +326,25 @@ tohil::exec {
         <div class="sphinxsidebarwrapper">
   <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Using Python From Tcl</a><ul>
-<li><a class="reference internal" href="#tohil-eval">tohil::eval</a></li>
-<li><a class="reference internal" href="#tohil-exec">tohil::exec</a></li>
-<li><a class="reference internal" href="#tohil-import">tohil::import</a></li>
-<li><a class="reference internal" href="#notes-about-exec">notes about exec</a></li>
-<li><a class="reference internal" href="#tohil-run">tohil::run</a></li>
-<li><a class="reference internal" href="#tohil-call">tohil::call</a></li>
-<li><a class="reference internal" href="#tohil-interact">tohil::interact</a></li>
-<li><a class="reference internal" href="#using-tohil-from-rivet">Using tohil from Rivet</a></li>
+<li><a class="reference internal" href="#">3. Using Python From Tcl</a><ul>
+<li><a class="reference internal" href="#tohil-eval">3.1. tohil::eval</a></li>
+<li><a class="reference internal" href="#tohil-exec">3.2. tohil::exec</a></li>
+<li><a class="reference internal" href="#tohil-import">3.3. tohil::import</a></li>
+<li><a class="reference internal" href="#notes-about-exec">3.4. notes about exec</a></li>
+<li><a class="reference internal" href="#tohil-run">3.5. tohil::run</a></li>
+<li><a class="reference internal" href="#tohil-call">3.6. tohil::call</a></li>
+<li><a class="reference internal" href="#tohil-interact">3.7. tohil::interact</a></li>
+<li><a class="reference internal" href="#using-tohil-from-rivet">3.8. Using tohil from Rivet</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="tohil_python.html"
-                        title="previous chapter">Using Tcl from Python</a></p>
+                        title="previous chapter"><span class="section-number">2. </span>Using Tcl from Python</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="tohil_tclobjs.html"
-                        title="next chapter">Tohil’s Tclobj Python Data Type</a></p>
+                        title="next chapter"><span class="section-number">4. </span>Tohil’s Tclobj Python Data Type</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -367,10 +367,10 @@ tohil::exec {
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="tohil_tclobjs.html" title="Tohil’s Tclobj Python Data Type"
+          <a href="tohil_tclobjs.html" title="4. Tohil’s Tclobj Python Data Type"
              >next</a> |</li>
         <li class="right" >
-          <a href="tohil_python.html" title="Using Tcl from Python"
+          <a href="tohil_python.html" title="2. Using Tcl from Python"
              >previous</a> |</li>
 
           <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -387,7 +387,7 @@ tohil::exec {
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >The Tohil Tutorial</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Using Python From Tcl</a></li>
+        <li class="nav-item nav-item-this"><a href=""><span class="section-number">3. </span>Using Python From Tcl</a></li>
                 <li class="right">
                     
 

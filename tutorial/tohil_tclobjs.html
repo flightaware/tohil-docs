@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tohil’s Tclobj Python Data Type &#8212; Tohil 4.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    
+    <script src="../_static/sidebar.js"></script>
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Tohil 4.0 documentation"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="Tohil’s Tcldict Python Data Type" href="tohil_tcldicts.html" />
+    <link rel="prev" title="Using Python From Tcl" href="tohil_tcl.html" />
+    <link rel="canonical" href="https://docs.python.org/3/tutorial/tohil_tclobjs.html" />
+    
+      
+    
+
+    
+    <style>
+      @media only screen {
+        table.full-width-table {
+            width: 100%;
+        }
+      }
+    </style>
+<link rel="shortcut icon" type="image/png" href="../_static/tohil.png" />
+            <script type="text/javascript" src="../_static/copybutton.js"></script>
+            <script type="text/javascript" src="../_static/menu.js"></script> 
+
+  </head>
+<body>
+<div class="mobile-nav">
+    <input type="checkbox" id="menuToggler" class="toggler__input" aria-controls="navigation"
+           aria-pressed="false" aria-expanded="false" role="button" aria-label="Menu" />
+    <label for="menuToggler" class="toggler__label">
+        <span></span>
+    </label>
+    <nav class="nav-content" role="navigation">
+         <a href="https://github.com/flightaware/tohil" class="nav-logo">
+             <img src="../_static/tohil.png" alt="Logo"/>
+         </a>
+        <div class="version_switcher_placeholder"></div>
+        <form id="searchbox" role="search" class="search" action="../search.html" method="get">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="search-icon">
+                <path fill-rule="nonzero"
+                        d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 001.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 00-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 005.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="#444"></path>
+            </svg>
+            <input type="text" name="q" aria-label="Quick search"/>
+            <input type="submit" value="Go"/>
+        </form>
+    </nav>
+    <div class="menu-wrapper">
+        <nav class="menu" role="navigation" aria-label="main navigation">
+            <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Tohil’s Tclobj Python Data Type</a><ul>
+<li><a class="reference internal" href="#creating-tclobj-objects-from-python">Creating Tclobj Objects From Python</a></li>
+<li><a class="reference internal" href="#getvar-and-setvar-methods">.getvar() and .setvar() methods</a></li>
+<li><a class="reference internal" href="#get-stuff-from-tclobjs-as-other-python-objects">Get stuff from tclobjs as Other Python Objects</a></li>
+<li><a class="reference internal" href="#set-and-reset">set() and reset()</a></li>
+<li><a class="reference internal" href="#incr">incr()</a></li>
+<li><a class="reference internal" href="#tclobjs-containing-tcl-lists">Tclobjs Containing Tcl lists</a></li>
+<li><a class="reference internal" href="#comparing-tclobjs-wo-each-other">Comparing Tclobjs wo Each Other</a></li>
+<li><a class="reference internal" href="#get-the-tclobj-s-tcl-type-and-reference-count">Get the tclobj’s Tcl Type and Reference Count</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tohil_tcl.html"
+                        title="previous chapter">Using Python From Tcl</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tohil_tcldicts.html"
+                        title="next chapter">Tohil’s Tcldict Python Data Type</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/master/Doc/tutorial/tohil_tclobjs.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </nav>
+    </div>
+</div>
+
+  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="tohil_tcldicts.html" title="Tohil’s Tcldict Python Data Type"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tohil_tcl.html" title="Using Python From Tcl"
+             accesskey="P">previous</a> |</li>
+
+          <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://github.com/flightaware/tohil">Tohil</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">4.0 Documentation</a> &#187;
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Tohil Tutorial</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Tohil’s Tclobj Python Data Type</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tohil-s-tclobj-python-data-type">
+<span id="tutorial-tclobjs"></span><h1>Tohil’s Tclobj Python Data Type<a class="headerlink" href="#tohil-s-tclobj-python-data-type" title="Permalink to this headline">¶</a></h1>
+<p>To provide powerful and facile interactions between Python and Tcl,
+Tohil provides a new Python data type, the Tcl object, or <em>tclobj</em>, aka
+<em>tohil.tclobj</em>.</p>
+<p>It’s a Python-wrapped Tcl object.</p>
+<p>It’s pretty insanely powerful.</p>
+<p>See, Tcl has these objects, fairly similar to Python at the C level, that
+it uses throughout.</p>
+<p>They can be a string or an int or a float or a list or a nested dictionary
+or a bunch of other things.</p>
+<p>Each tclobj maintains a pointer to a Tcl object and can do things to and
+with that Tcl object.</p>
+<div class="section" id="creating-tclobj-objects-from-python">
+<h2>Creating Tclobj Objects From Python<a class="headerlink" href="#creating-tclobj-objects-from-python" title="Permalink to this headline">¶</a></h2>
+<p>You can create an empty tclobj just like creating any other object from
+a class in Python:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">tclobj</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Something pretty cool is you can pass many different Python data types,
+including lists and dicts, to tohil.tclobj, and it will
+and it will pretty much “do the right thing,” i.e. it will produce
+something expected and straightforward that Tcl can make sense of.</p>
+<p>For example you can pass tclobj() None, bools, numbers, bytes, unicode,
+sequences, maps, and even other tclobjs.</p>
+</div>
+<div class="section" id="getvar-and-setvar-methods">
+<h2>.getvar() and .setvar() methods<a class="headerlink" href="#getvar-and-setvar-methods" title="Permalink to this headline">¶</a></h2>
+<p>You can also attach a tclobj to a Tcl variable or array element, or set
+a variable or array element from the contents of the tclobj using its
+<em>getvar()</em> and <em>setvar()</em> methods.</p>
+</div>
+<div class="section" id="get-stuff-from-tclobjs-as-other-python-objects">
+<h2>Get stuff from tclobjs as Other Python Objects<a class="headerlink" href="#get-stuff-from-tclobjs-as-other-python-objects" title="Permalink to this headline">¶</a></h2>
+<p>Tclobjs have methods to convert the tclobj to Python strings, ints, floats,
+bools, lists, sets, tuples, dicts, byte arrays, and, again, tclobjs.</p>
+<ul class="simple">
+<li><p><em>bool(t)</em> - Return the contents of the tclobj object as a Python bool</p></li>
+<li><p><em>float(t)</em>, <em>int(t)</em> - as a python float and int (long), respectively.</p></li>
+<li><p><em>list(t)</em> - as a python list</p></li>
+<li><p><em>str(t)</em> - as a python str</p></li>
+<li><p><em>tuple(t)</em> - as a python tuple object</p></li>
+<li><p><em>tohil.tclobj(t)</em> - as a new python tclobj object</p></li>
+<li><p><em>tohil.tcldict(t)</em> - as a new python tcldict object</p></li>
+<li><p><em>t.as_byte_array()</em> - a Python byte array</p></li>
+<li><p><em>t.as_dict()</em> - a Python dict</p></li>
+</ul>
+</div>
+<div class="section" id="set-and-reset">
+<h2>set() and reset()<a class="headerlink" href="#set-and-reset" title="Permalink to this headline">¶</a></h2>
+<p><em>t.set()</em> tries to covert whatever Python object is passed to it and store
+it in the tclobj as a Tcl object, while <em>t.reset()</em> resets the tclobj object
+to contain an empty Tcl object.</p>
+</div>
+<div class="section" id="incr">
+<h2>incr()<a class="headerlink" href="#incr" title="Permalink to this headline">¶</a></h2>
+<p><em>t.incr()</em> tries to increment the tclobj object.  If the contents of the object
+preclude it from being used as an integer, a TypeError exception is thrown.</p>
+<p>t.incr takes an optional positional argument, which is the increment amount.
+It can also be specified using the “incr” named argument.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">tohil</span><span class="o">.</span><span class="n">tclobj</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">incr</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">incr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">incr</span><span class="p">(</span><span class="n">incr</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tclobjs-containing-tcl-lists">
+<h2>Tclobjs Containing Tcl lists<a class="headerlink" href="#tclobjs-containing-tcl-lists" title="Permalink to this headline">¶</a></h2>
+<p>When a tclobj contains Tcl lists, cool stuff comes into play.</p>
+<p>Accessing a tclobj containing a list from Python is nearly identical
+to accessing a standard Python list.  You can access and change elements,
+use slice notation, etc, and most standard Python list methods are provided
+as well.</p>
+<p>You can get the length of the tclobj list with <em>len(obj)</em>, while
+<em>obj.lindex(i)</em> will return the <em>i</em>’th element.</p>
+<p>You can also just use <code class="docutils literal notranslate"><span class="pre">l[i]</span></code> to get the i’th element of <em>l</em>, although
+the <em>lindex</em> supports Tohil’s <em>to=type</em> conversion as well.</p>
+<p><em>obj.append()</em> will append to the list stored in the tclobj.</p>
+<p><em>obj.extend()</em> will append a Tcl object comprising a list, or a Python list,
+to a list, making it flat, i.e. each element of the list is appended to obj’s
+list.</p>
+<p><em>obj.pop(x)</em> will pop the <em>x</em>’th element from a tcl obj comprising a list.
+If no index is specified, obj.pop() removes and returns the last item in
+the list.</p>
+<p><em>obj.insert(i, x)</em> will insert item <em>x</em> at position <em>i</em>.
+So as with Python lists, <code class="docutils literal notranslate"><span class="pre">obj.insert(0,</span> <span class="pre">x)</span></code> inserts at the front of the
+list, and <code class="docutils literal notranslate"><span class="pre">a.insert(len(a),</span> <span class="pre">x)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">obj.append(x)</span></code></p>
+<p><em>obj.clear()</em> removes all items from the list.</p>
+<p>You can use Python’s indexing syntax to access and replace list elements.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">tohil</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s2">&quot;list 1 2 3 4 5 6&quot;</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="n">tohil</span><span class="o">.</span><span class="n">tclobj</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">&lt;tohil.tclobj: &#39;1 2 3 4 5 6&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">&#39;3&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">:]</span>
+<span class="go">[&#39;4&#39;, &#39;5&#39;, &#39;6&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
+<span class="go">[&#39;5&#39;, &#39;6&#39;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">[&#39;5&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="comparing-tclobjs-wo-each-other">
+<h2>Comparing Tclobjs wo Each Other<a class="headerlink" href="#comparing-tclobjs-wo-each-other" title="Permalink to this headline">¶</a></h2>
+<p>Tclobjs can be compared.  If equality check is requested, first their
+internal tclobj pointers are compared for absolute equality.  Following that,
+and for all other cases (&lt;, &lt;=, &gt;, &gt;=), their string representations are
+obtained and compared.</p>
+<p>Not something you probably should rely on for complicated objects but should
+be fine for simple ones.</p>
+<p>Comparisons are really permissive, too, in what the tclobj implementation
+accepts from Python.</p>
+<p>It seems pretty good, but this is new stuff, so be careful and let us know
+how it’s going.</p>
+</div>
+<div class="section" id="get-the-tclobj-s-tcl-type-and-reference-count">
+<h2>Get the tclobj’s Tcl Type and Reference Count<a class="headerlink" href="#get-the-tclobj-s-tcl-type-and-reference-count" title="Permalink to this headline">¶</a></h2>
+<p><em>t._tcltype</em> will tell you the tcl object type of the tcl object stored
+within the tclobj.  Note that you may get nothing back even though there
+is some valid thing there, say for instance a dict, but you haven’t
+accessed it as a dict, so it’s just a string or list or some other data
+type until you do.</p>
+<p><em>t._refcount</em> will tell you the reference count of the tclobj’s tcl object.
+This isn’t probably useful for production code but it is kind of cool for poking
+around and trying to understand what objects are shared and how and when
+and stuff.</p>
+<p><em>t._pyrefcount</em> likewise will return the python reference count of the tclobj.</p>
+<p>Note that if you’re poking around, that sometimes you might think the reference
+count is one higher than it should be, but frequently the object you just
+set the value of also happens to be the Tcl interpreter result (i.e. you used
+the interpreter to make it).  Once the interpreter does something else and
+produces a new result, your object’s reference count will go down by one.</p>
+<p>If this doesn’t make sense, don’t worry about it.  You probably don’t need
+it and don’t care anyway.</p>
+<p>You can create a tclobj from most Python stuff.</p>
+<p>…a list:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="go">&lt;class &#39;list&#39;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kl</span> <span class="o">=</span> <span class="n">tohil</span><span class="o">.</span><span class="n">tclobj</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">kl</span><span class="p">)</span>
+<span class="go">&#39;1 2 3 4 5&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kl</span><span class="o">.</span><span class="n">llength</span><span class="p">()</span>
+<span class="go">5</span>
+</pre></div>
+</div>
+<p>…a tuple:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">tohil</span><span class="o">.</span><span class="n">tclobj</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="go">&#39;1 2 3&#39;</span>
+</pre></div>
+</div>
+<p>…a dict:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">tohil</span><span class="o">.</span><span class="n">tclobj</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="go">&#39;a 0 b 1 c 2 d 3&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Tohil’s Tclobj Python Data Type</a><ul>
+<li><a class="reference internal" href="#creating-tclobj-objects-from-python">Creating Tclobj Objects From Python</a></li>
+<li><a class="reference internal" href="#getvar-and-setvar-methods">.getvar() and .setvar() methods</a></li>
+<li><a class="reference internal" href="#get-stuff-from-tclobjs-as-other-python-objects">Get stuff from tclobjs as Other Python Objects</a></li>
+<li><a class="reference internal" href="#set-and-reset">set() and reset()</a></li>
+<li><a class="reference internal" href="#incr">incr()</a></li>
+<li><a class="reference internal" href="#tclobjs-containing-tcl-lists">Tclobjs Containing Tcl lists</a></li>
+<li><a class="reference internal" href="#comparing-tclobjs-wo-each-other">Comparing Tclobjs wo Each Other</a></li>
+<li><a class="reference internal" href="#get-the-tclobj-s-tcl-type-and-reference-count">Get the tclobj’s Tcl Type and Reference Count</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="tohil_tcl.html"
+                        title="previous chapter">Using Python From Tcl</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tohil_tcldicts.html"
+                        title="next chapter">Tohil’s Tcldict Python Data Type</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">Report a Bug</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/master/Doc/tutorial/tohil_tclobjs.rst"
+            rel="nofollow">Show Source
+        </a>
+      </li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="tohil_tcldicts.html" title="Tohil’s Tcldict Python Data Type"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tohil_tcl.html" title="Using Python From Tcl"
+             >previous</a> |</li>
+
+          <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
+          <li><a href="https://github.com/flightaware/tohil">Tohil</a> &#187;</li>
+          <li class="switchers">
+            <div class="language_switcher_placeholder"></div>
+            <div class="version_switcher_placeholder"></div>
+          </li>
+          <li>
+              
+          </li>
+    <li id="cpython-language-and-version">
+      <a href="../index.html">4.0 Documentation</a> &#187;
+    </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >The Tohil Tutorial</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Tohil’s Tclobj Python Data Type</a></li>
+                <li class="right">
+                    
+
+    <div class="inline-search" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" aria-label="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+                     |
+                </li>
+            
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2014, Aidan Hobson Sayers, 2021-2021, FlightAware LLC.
+    <br />
+    This page is licensed under the Python Software Foundation License Version 2.
+    <br />
+    Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License.
+    <br />
+    See <a href="">History and License</a> for more information.
+    <br /><br />
+
+    The Python Software Foundation is a non-profit corporation.
+<a href="https://www.python.org/psf/donations/">Please donate.</a>
+<br />
+    <br />
+
+    Last updated on Jun 04, 2021.
+    <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
+    <br />
+
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    </div>
+
+  </body>
+</html>

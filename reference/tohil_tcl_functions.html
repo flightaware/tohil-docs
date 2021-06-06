@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Tohil Library &#8212; Tohil 4.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tohil Tcl Functions &#8212; Tohil 4.0 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
@@ -24,9 +24,9 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="Introduction" href="intro.html" />
-    <link rel="prev" title="7. Shadow Dictionaries" href="../tutorial/shadow_dicts.html" />
-    <link rel="canonical" href="https://docs.python.org/3/reference/index.html" />
+    <link rel="next" title="Tohil Types" href="tohil_types.html" />
+    <link rel="prev" title="Tohil Python Functions" href="tohil_python_functions.html" />
+    <link rel="canonical" href="https://docs.python.org/3/reference/tohil_tcl_functions.html" />
     
       
     
@@ -69,17 +69,17 @@
         <nav class="menu" role="navigation" aria-label="main navigation">
             <div class="language_switcher_placeholder"></div>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../tutorial/shadow_dicts.html"
-                        title="previous chapter"><span class="section-number">7. </span>Shadow Dictionaries</a></p>
+  <p class="topless"><a href="tohil_python_functions.html"
+                        title="previous chapter">Tohil Python Functions</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="intro.html"
-                        title="next chapter">Introduction</a></p>
+  <p class="topless"><a href="tohil_types.html"
+                        title="next chapter">Tohil Types</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/reference/index.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/reference/tohil_tcl_functions.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -97,10 +97,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="intro.html" title="Introduction"
+          <a href="tohil_types.html" title="Tohil Types"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../tutorial/shadow_dicts.html" title="7. Shadow Dictionaries"
+          <a href="tohil_python_functions.html" title="Tohil Python Functions"
              accesskey="P">previous</a> |</li>
 
           <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -116,7 +116,8 @@
       <a href="../index.html">4.0 Documentation</a> &#187;
     </li>
 
-        <li class="nav-item nav-item-this"><a href="">The Tohil Library</a></li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The Tohil Library</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Tohil Tcl Functions</a></li>
                 <li class="right">
                     
 
@@ -139,29 +140,73 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="the-tohil-library">
-<span id="library-index"></span><h1>The Tohil Library<a class="headerlink" href="#the-tohil-library" title="Permalink to this headline">¶</a></h1>
-<p>This library reference manual
-describes the library that is Tohil.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tohil_python_functions.html">Tohil Python Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tohil_tcl_functions.html">Tohil Tcl Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tohil_types.html">Tohil Types</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tohil_types.html#testing-tclobj-truth-values">Testing Tclobj Truth Values</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tohil_types.html#comparisons">Comparisons</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tohil_types.html#using-tohil-tclobjs-as-numeric-types">Using Tohil tclobjs as Numeric Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tohil_types.html#bitwise-operations-on-tohil-types">Bitwise Operations on Tohil Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tohil_types.html#tclobjs-as-lists">tclobjs as lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tohil_types.html#mapping-types-tcldict">Mapping Types — <code class="xref py py-class docutils literal notranslate"><span class="pre">tcldict</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="tohil_types.html#dictionary-view-objects">Dictionary view objects</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tohil_exceptions.html">Tohil Exceptions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tohil_tcl_errors.html">Tohil Tcl Errors</a></li>
-</ul>
-</div>
+  <div class="section" id="tohil-tcl-functions">
+<h1>Tohil Tcl Functions<a class="headerlink" href="#tohil-tcl-functions" title="Permalink to this headline">¶</a></h1>
+<p>Once a <code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">require</span> <span class="pre">Tohil</span></code> has been performed
+from Tcl interpreter, the following commands are available:</p>
+<dl class="py function">
+<dt>
+<code class="sig-name descname"><span class="pre">tohil::call</span> <span class="pre">[-kwlist</span> <span class="pre">list]</span> <span class="pre">[obj.]function</span> <span class="pre">[arg...]</span></code></dt>
+<dd><p><em>tohil::call</em> provides a way to invoke a Python function,
+with zero or more positional parameters and zero or more
+named parameters, without having to pass the parameters through
+Python’s <em>eval</em> or <em>exec</em> and running the risk that Python
+metacharacters appearing in the data will cause quoting problems,
+accidental code execution, etc.</p>
+<p>Whatever the Python function returns is returned to Tcl.</p>
+<p>If <em>-kwlist list</em> is specified, <em>list</em> contains key-value pairs
+that will be passed to the function as named parameters.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt>
+<code class="sig-name descname"><span class="pre">tohil::eval</span> <span class="pre">evalString</span></code></dt>
+<dd><p><em>evalString</em> contains a valid Python expression.  Tohil
+evaluates the string using the Python interpreter and
+returns to Tcl whatever Python returned.</p>
+<p>If an exception is thrown and not caught by any Python code
+before getting back to Tohil, Tohil traps the exception,
+converts it into a Tcl error, and returns that error to
+the caller.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt>
+<code class="sig-name descname"><span class="pre">tohil::exec</span></code></dt>
+<dd><p><em>tohil::exec</em> evaluates the code passed to it, similarly to
+Python’s <em>exec</em> function.  Nothing is returned.</p>
+<p>If the Python code prints anything, it goes to stdout using Python’s
+I/O subsystem.  However you can easily redirect Python’s output to go
+to a string, or whatever, in the normal Python manner.
+<em>tohil::run</em>, in fact, provides a way to do this.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt>
+<code class="sig-name descname"><span class="pre">tohil::import</span> <span class="pre">module</span></code></dt>
+<dd><p>Import the specified module into the globals of the Python interpreter.</p>
+<p>The name of the module may be of the form module.submodule.</p>
+<p>You can do the same thing using <em>exec</em> and, currently, exercise
+more control, for example <code class="docutils literal notranslate"><span class="pre">tohil::exec</span> <span class="pre">&quot;from</span> <span class="pre">io</span> <span class="pre">import</span> <span class="pre">StringIO&quot;</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt>
+<code class="sig-name descname"><span class="pre">tohil::interact</span></code></dt>
+<dd><p>We run <em>tohil::interact</em> from the Tcl command prompt to enter the Python
+interactive loop.  When we’re done, we send end of file (^D) to end the
+Python loop and return to the Tcl one.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt>
+<code class="sig-name descname"><span class="pre">tohil::run</span></code></dt>
+<dd><p>tohil::run evaluates the code passed to it as if with Python’s <em>exec</em>,
+but unlike <em>tohil::exec</em>, anything emitted by the Python code to
+Python’s stdout (print, etc) is captured by <em>tohil::run</em> and returned
+to the caller.</p>
+</dd></dl>
+
 </div>
 
 
@@ -172,17 +217,17 @@ describes the library that is Tohil.</p>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../tutorial/shadow_dicts.html"
-                        title="previous chapter"><span class="section-number">7. </span>Shadow Dictionaries</a></p>
+  <p class="topless"><a href="tohil_python_functions.html"
+                        title="previous chapter">Tohil Python Functions</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="intro.html"
-                        title="next chapter">Introduction</a></p>
+  <p class="topless"><a href="tohil_types.html"
+                        title="next chapter">Tohil Types</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/reference/index.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/reference/tohil_tcl_functions.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -199,10 +244,10 @@ describes the library that is Tohil.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="intro.html" title="Introduction"
+          <a href="tohil_types.html" title="Tohil Types"
              >next</a> |</li>
         <li class="right" >
-          <a href="../tutorial/shadow_dicts.html" title="7. Shadow Dictionaries"
+          <a href="tohil_python_functions.html" title="Tohil Python Functions"
              >previous</a> |</li>
 
           <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -218,7 +263,8 @@ describes the library that is Tohil.</p>
       <a href="../index.html">4.0 Documentation</a> &#187;
     </li>
 
-        <li class="nav-item nav-item-this"><a href="">The Tohil Library</a></li>
+          <li class="nav-item nav-item-1"><a href="index.html" >The Tohil Library</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Tohil Tcl Functions</a></li>
                 <li class="right">
                     
 

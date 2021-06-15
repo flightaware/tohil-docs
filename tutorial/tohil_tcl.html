@@ -243,7 +243,7 @@ tohil::exec never returns anything.</p>
 <p>You instead need to use tohil::eval in this example.  You can call
 functions using tohil::eval, by the way.</p>
 <p>Though possibly a bit surprising, this behavior is consistent
-with how exec works in Python. It probably sbhouldn’t
+with how exec works in Python. It probably shouldn’t
 be a surprise that Tohil is using Python’s
 eval and exec mechanisms at the C level to provide these capabilities
 to Tcl.</p>
@@ -293,9 +293,9 @@ return to the Tcl one.</p>
 </div>
 <div class="section" id="using-tohil-from-rivet">
 <h2><span class="section-number">3.8. </span>Using tohil from Rivet<a class="headerlink" href="#using-tohil-from-rivet" title="Permalink to this headline">¶</a></h2>
-<p>Rivet is an Apache webserver module that provides among other things
-a way for webpages to be made from HTML files with embedded Tcl code
-that executes when the page is requested.</p>
+<p><a class="reference external" href="https:/https://tcl.apache.org/rivet/">Apache Rivet</a> is an Apache webserver
+module that provides among other things a way for webpages to be made from HTML
+files with embedded Tcl code that executes when the page is requested.</p>
 <p>From a Rivet page, in some of your Tcl code, invoke <cite>package require tohil</cite>.</p>
 <p>If you run tohil_rivet it will plug tohil’s Python interpreter such that
 everything Python writes to stdout using print, or whatever, will go through
@@ -419,7 +419,7 @@ tohil::exec {
 <br />
     <br />
 
-    Last updated on Jun 04, 2021.
+    Last updated on Jun 15, 2021.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 

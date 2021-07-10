@@ -355,6 +355,24 @@ the entire array.</p>
 array elements that don’t exist.</p>
 </dd></dl>
 
+<dl class="py function">
+<dt id="tohil.tcl_stdout_to_python">
+<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">tcl_stdout_to_python</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tohil.tcl_stdout_to_python" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tcl normally uses its own I/O system to read and write data.</p>
+<p>As <em>tohil.rivet()</em> can be used from Python to redirect Python’s
+writing to standard output to go through Tcl’s I/O subsystem
+(and, hence, to Rivet),
+<em>tohil.tcl_stdout_to_python</em> does the opposite, configuring the
+Tcl interpreter to redirect its
+standard output, <em>stdout</em>, away from Tcl’s I/O subsystem and
+instead send whatever is written through Python’s.</p>
+<p>If using <a class="reference external" href="https://https://jupyter.org">Jupyter Notebook</a>, invoking
+tohil.tcl_stdout_to_python() will cause
+any Tcl output written to standard output to appear in the notebook rather
+than in the log file or stdout of the jupyter command line that’s causing
+the Jupyter notebook webserver to exist.</p>
+</dd></dl>
+
 </div>
 
 
@@ -444,7 +462,7 @@ array elements that don’t exist.</p>
 <br />
     <br />
 
-    Last updated on Jun 06, 2021.
+    Last updated on Jul 10, 2021.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 

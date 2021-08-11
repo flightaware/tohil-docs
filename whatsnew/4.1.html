@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>What’s New in Tohil &#8212; Tohil 4.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What’s New In Tohil 4.1 &#8212; Tohil 4.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
@@ -24,9 +24,9 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="What’s New In Tohil 4.1" href="4.1.html" />
-    <link rel="prev" title="Tohil Documentation contents" href="../contents.html" />
-    <link rel="canonical" href="https://docs.python.org/3/whatsnew/index.html" />
+    <link rel="next" title="What’s New In Tohil 4.0" href="4.0.html" />
+    <link rel="prev" title="What’s New in Tohil" href="index.html" />
+    <link rel="canonical" href="https://docs.python.org/3/whatsnew/4.1.html" />
     
       
     
@@ -68,18 +68,30 @@
     <div class="menu-wrapper">
         <nav class="menu" role="navigation" aria-label="main navigation">
             <div class="language_switcher_placeholder"></div>
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What’s New In Tohil 4.1</a><ul>
+<li><a class="reference internal" href="#tclobjs-returned-from-more-places">tclobjs returned from more places</a></li>
+<li><a class="reference internal" href="#python-side-callback-function-registration">Python-side callback function registration</a></li>
+<li><a class="reference internal" href="#several-other-improvements">Several other improvements</a></li>
+<li><a class="reference internal" href="#numerous-bug-fixes">Numerous bug fixes</a></li>
+<li><a class="reference internal" href="#considerably-improved-documentation">Considerably improved documentation</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../contents.html"
-                        title="previous chapter">Tohil Documentation contents</a></p>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">What’s New in Tohil</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="4.1.html"
-                        title="next chapter">What’s New In Tohil 4.1</a></p>
+  <p class="topless"><a href="4.0.html"
+                        title="next chapter">What’s New In Tohil 4.0</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/whatsnew/index.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/whatsnew/4.1.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -97,10 +109,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="4.1.html" title="What’s New In Tohil 4.1"
+          <a href="4.0.html" title="What’s New In Tohil 4.0"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../contents.html" title="Tohil Documentation contents"
+          <a href="index.html" title="What’s New in Tohil"
              accesskey="P">previous</a> |</li>
 
           <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -116,7 +128,8 @@
       <a href="../index.html">4.1 Documentation</a> &#187;
     </li>
 
-        <li class="nav-item nav-item-this"><a href="">What’s New in Tohil</a></li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">What’s New in Tohil</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">What’s New In Tohil 4.1</a></li>
                 <li class="right">
                     
 
@@ -139,45 +152,52 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="what-s-new-in-tohil">
-<span id="whatsnew-index"></span><h1>What’s New in Tohil<a class="headerlink" href="#what-s-new-in-tohil" title="Permalink to this headline">¶</a></h1>
-<p>“What’s New in Tohil” describes the big changes between major Tohil versions.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="4.1.html">What’s New In Tohil 4.1</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="4.1.html#tclobjs-returned-from-more-places">tclobjs returned from more places</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4.1.html#python-side-callback-function-registration">Python-side callback function registration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4.1.html#several-other-improvements">Several other improvements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4.1.html#numerous-bug-fixes">Numerous bug fixes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4.1.html#considerably-improved-documentation">Considerably improved documentation</a></li>
+  <div class="section" id="what-s-new-in-tohil-4-1">
+<h1>What’s New In Tohil 4.1<a class="headerlink" href="#what-s-new-in-tohil-4-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tclobjs-returned-from-more-places">
+<h2>tclobjs returned from more places<a class="headerlink" href="#tclobjs-returned-from-more-places" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><cite>to=dict</cite> conversions now returns tclobjs for the dictionary values.</p></li>
+<li><p><cite>tclobj.as_dict()</cite> does so as well.</p></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="4.0.html">What’s New In Tohil 4.0</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="4.0.html#tclobj-default-return">tclobj default return</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4.0.html#python-subinterpreter-support">Python Subinterpreter Support</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4.0.html#support-for-separate-virtual-interpreters-in-rivet">Support for Separate Virtual Interpreters in Rivet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4.0.html#a-function-can-now-be-specified-in-a-to-arg">A function can now be specified in a to= arg</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4.0.html#user-facing-behavior-changes">User-Facing Behavior Changes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4.0.html#internal-changes">Internal Changes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4.0.html#documentation-improvements">Documentation Improvements</a></li>
+</div>
+<div class="section" id="python-side-callback-function-registration">
+<h2>Python-side callback function registration<a class="headerlink" href="#python-side-callback-function-registration" title="Permalink to this headline">¶</a></h2>
+<p>The new <cite>register_callback</cite> function provides a nice way to create Tcl
+commands that directly call corresponding Python functions.  This is useful
+for processing asynchronous callbacks from the Tcl event loop using Python,
+and may be useful for other stuff as well.</p>
+</div>
+<div class="section" id="several-other-improvements">
+<h2>Several other improvements<a class="headerlink" href="#several-other-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Pass None from Tcl to Python functions called via <cite>tohil::call</cite>
+by using the <cite>tohil::NONE</cite> sentinel.</p></li>
+<li><p>More precise error messages when Tohil startup fails should help
+with troubleshooting installation problems.</p></li>
+<li><p>Many new tests.</p></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="3.2.html">What’s New In Tohil 3.2</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="3.2.html#tclobjs">tclobjs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.html#tclobj-shadow-vars">Tclobj Shadow Vars</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.html#tcldicts">Tcldicts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.html#shadowdicts">ShadowDicts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.html#python-exception-improvements">Python exception improvements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.html#tohil-method-improvements-and-changes">Tohil method improvements and changes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.html#testing-improvements">Testing Improvements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="3.2.html#build-improvements">Build Improvements</a></li>
+</div>
+<div class="section" id="numerous-bug-fixes">
+<h2>Numerous bug fixes<a class="headerlink" href="#numerous-bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Python builtins can be called from Tcl-side tohil::call without
+resorting to explicitly specifying the builtins namespace.</p></li>
+<li><p>Fixed bugs in how tclvars (tclobjs bound to vars) handled some methods,
+such as insert, pop, append, and extend.</p></li>
+<li><p>Correct behavior of tclobj iterators, also fixes a crash.</p></li>
+<li><p>If Python is initializing Tcl, it now does so using
+<cite>package require</cite> rather than a <cite>Tohil_Init</cite> to cause Tohil’s Tcl package
+code to get sourced.  (It also requires the exact version of Tohil that it is,
+to reduce the risk of it loading some other version of the library when
+multiple versions are installed.)</p></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="3.0.html">What’s New In Tohil 3.0</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="3.0.html#tclprocs">TclProcs</a></li>
-</ul>
-</li>
-</ul>
+</div>
+<div class="section" id="considerably-improved-documentation">
+<h2>Considerably improved documentation<a class="headerlink" href="#considerably-improved-documentation" title="Permalink to this headline">¶</a></h2>
+<p>We’ve considerably improved and extended the Tohil tutorial and
+reference, in Python-standard RST format,
+and are serving it out at <a class="reference external" href="https://flightaware.github.io/tohil-docs/">https://flightaware.github.io/tohil-docs/</a></p>
 </div>
 </div>
 
@@ -188,18 +208,30 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What’s New In Tohil 4.1</a><ul>
+<li><a class="reference internal" href="#tclobjs-returned-from-more-places">tclobjs returned from more places</a></li>
+<li><a class="reference internal" href="#python-side-callback-function-registration">Python-side callback function registration</a></li>
+<li><a class="reference internal" href="#several-other-improvements">Several other improvements</a></li>
+<li><a class="reference internal" href="#numerous-bug-fixes">Numerous bug fixes</a></li>
+<li><a class="reference internal" href="#considerably-improved-documentation">Considerably improved documentation</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../contents.html"
-                        title="previous chapter">Tohil Documentation contents</a></p>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">What’s New in Tohil</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="4.1.html"
-                        title="next chapter">What’s New In Tohil 4.1</a></p>
+  <p class="topless"><a href="4.0.html"
+                        title="next chapter">What’s New In Tohil 4.0</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/whatsnew/index.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/whatsnew/4.1.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -216,10 +248,10 @@
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="4.1.html" title="What’s New In Tohil 4.1"
+          <a href="4.0.html" title="What’s New In Tohil 4.0"
              >next</a> |</li>
         <li class="right" >
-          <a href="../contents.html" title="Tohil Documentation contents"
+          <a href="index.html" title="What’s New in Tohil"
              >previous</a> |</li>
 
           <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -235,7 +267,8 @@
       <a href="../index.html">4.1 Documentation</a> &#187;
     </li>
 
-        <li class="nav-item nav-item-this"><a href="">What’s New in Tohil</a></li>
+          <li class="nav-item nav-item-1"><a href="index.html" >What’s New in Tohil</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">What’s New In Tohil 4.1</a></li>
                 <li class="right">
                     
 

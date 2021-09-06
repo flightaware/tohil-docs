@@ -4,13 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>5. Tohil’s Tcldict Python Data Type &#8212; Tohil 4.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -155,7 +156,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="tohil-s-tcldict-python-data-type">
+  <section id="tohil-s-tcldict-python-data-type">
 <span id="tutorial-tcldicts"></span><h1><span class="section-number">5. </span>Tohil’s Tcldict Python Data Type<a class="headerlink" href="#tohil-s-tcldict-python-data-type" title="Permalink to this headline">¶</a></h1>
 <p><em>Tcldicts</em> are Python-wrapped Tcl dictionaries.</p>
 <p>While they have the same internal structure as tclobjs (a Python object
@@ -167,15 +168,15 @@ dictionaries, which can also be hierarchies of key-value data.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">tohil</span><span class="o">.</span><span class="n">tcldict</span><span class="p">(</span><span class="s2">&quot;a 1 b 2 c 3 d 4 e 5&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="section" id="accessing-elements-in-a-tcldict">
+<section id="accessing-elements-in-a-tcldict">
 <h2><span class="section-number">5.1. </span>Accessing Elements in a Tcldict<a class="headerlink" href="#accessing-elements-in-a-tcldict" title="Permalink to this headline">¶</a></h2>
 <p>You can access elements using normal Python dict access techniques.</p>
 <p>For instance, <em>d[“a”]</em> returns 1, <em>d.get(‘a’)</em> does the same.
 With the “get” approach you can specify a <em>to=type</em> to control what Python
 type is returned.  Also you can set the Python type returned by
 doing <code class="docutils literal notranslate"><span class="pre">d.to</span> <span class="pre">=</span> <span class="pre">type</span></code>.</p>
-</div>
-<div class="section" id="setting-values-into-a-tcldict">
+</section>
+<section id="setting-values-into-a-tcldict">
 <h2><span class="section-number">5.2. </span>Setting Values into a Tcldict<a class="headerlink" href="#setting-values-into-a-tcldict" title="Permalink to this headline">¶</a></h2>
 <p>Setting values will do a Tcl <em>dict set</em> on a tcldict.
 It takes a key and a value.
@@ -203,8 +204,8 @@ can be specified, as in:</p>
 <span class="go">1</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="get">
+</section>
+<section id="get">
 <h2><span class="section-number">5.3. </span>get()<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h2>
 <p>Likewise, <em>get</em> will accept a list of keys, treating the Tcl object as
 a nested tree of dictionaries, with inner dictionaries stored as values
@@ -224,28 +225,28 @@ will return if the requested key doesn’t exist.</p>
 <p>If a <em>to=datatype</em> is specified and the default value is used, Tohil
 will coerve the default value to the <em>to</em>-specified datatype, if
 possible, or an exception is raised if not.</p>
-</div>
-<div class="section" id="checking-for-existence">
+</section>
+<section id="checking-for-existence">
 <h2><span class="section-number">5.4. </span>Checking for Existence<a class="headerlink" href="#checking-for-existence" title="Permalink to this headline">¶</a></h2>
 <p>You can do the usual Python <code class="docutils literal notranslate"><span class="pre">'a'</span> <span class="pre">in</span> <span class="pre">mydict</span></code> check for existence.</p>
 <p>The thing being checked for can be a list, in order to navigate
 a hierarchy of Tcl dictionaries.
 For example, <code class="docutils literal notranslate"><span class="pre">[&quot;airport&quot;,</span> <span class="pre">&quot;KHOU&quot;]</span> <span class="pre">in</span> <span class="pre">mydict</span></code></p>
-</div>
-<div class="section" id="len">
+</section>
+<section id="len">
 <h2><span class="section-number">5.5. </span>len()<a class="headerlink" href="#len" title="Permalink to this headline">¶</a></h2>
 <p><em>len(t)</em> returns the size of the Tcl dict, or throws an error if the contents
 of the object can’t be treated as a Tcl dict.</p>
-</div>
-<div class="section" id="removing-elements">
+</section>
+<section id="removing-elements">
 <h2><span class="section-number">5.6. </span>Removing Elements<a class="headerlink" href="#removing-elements" title="Permalink to this headline">¶</a></h2>
 <p>Standard <code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">t[key]</span></code> Python stuff.</p>
 <p><em>td_remove</em> can also accept a list of elements and in that case it will
 delete a hierarchy of subordinate Tcl dictionaries.  In the list case,
 if more than one element is specified in the list, it is an error if
 any of the keys don’t exist.</p>
-</div>
-<div class="section" id="assembling-tcldicts-from-tcldicts-and-tclobjs">
+</section>
+<section id="assembling-tcldicts-from-tcldicts-and-tclobjs">
 <h2><span class="section-number">5.7. </span>Assembling Tcldicts from Tcldicts and Tclobjs<a class="headerlink" href="#assembling-tcldicts-from-tcldicts-and-tclobjs" title="Permalink to this headline">¶</a></h2>
 <p>You can create new tclobjs or tcldicts as the contents of sub-parts of
 dictionaries and use them as dictionaries in their own right, or whatever.</p>
@@ -263,8 +264,8 @@ dictionary of elements, <em>d</em>.</p>
 <p>Likewise you can compose more complicated dictionaries by attaching a
 dictionary to a point within another dictionary, simply by assigning
 a tclobj or tcldict that itself contains a dictionary.</p>
-</div>
-<div class="section" id="iterators">
+</section>
+<section id="iterators">
 <h2><span class="section-number">5.8. </span>iterators<a class="headerlink" href="#iterators" title="Permalink to this headline">¶</a></h2>
 <p>You can iterate over a tcldict with normal Python semantics.</p>
 <p>For example, something like:</p>
@@ -280,8 +281,8 @@ conversion.</p>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;key </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> value </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -385,11 +386,11 @@ conversion.</p>
 <br />
     <br />
 
-    Last updated on Aug 04, 2021.
+    Last updated on Sep 06, 2021.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
     </div>
 
   </body>

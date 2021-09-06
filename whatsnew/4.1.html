@@ -4,13 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>What’s New In Tohil 4.1 &#8212; Tohil 4.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -152,23 +153,23 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="what-s-new-in-tohil-4-1">
+  <section id="what-s-new-in-tohil-4-1">
 <h1>What’s New In Tohil 4.1<a class="headerlink" href="#what-s-new-in-tohil-4-1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="tclobjs-returned-from-more-places">
+<section id="tclobjs-returned-from-more-places">
 <h2>tclobjs returned from more places<a class="headerlink" href="#tclobjs-returned-from-more-places" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p><cite>to=dict</cite> conversions now returns tclobjs for the dictionary values.</p></li>
 <li><p><cite>tclobj.as_dict()</cite> does so as well.</p></li>
 </ul>
-</div>
-<div class="section" id="python-side-callback-function-registration">
+</section>
+<section id="python-side-callback-function-registration">
 <h2>Python-side callback function registration<a class="headerlink" href="#python-side-callback-function-registration" title="Permalink to this headline">¶</a></h2>
 <p>The new <cite>register_callback</cite> function provides a nice way to create Tcl
 commands that directly call corresponding Python functions.  This is useful
 for processing asynchronous callbacks from the Tcl event loop using Python,
 and may be useful for other stuff as well.</p>
-</div>
-<div class="section" id="several-other-improvements">
+</section>
+<section id="several-other-improvements">
 <h2>Several other improvements<a class="headerlink" href="#several-other-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Pass None from Tcl to Python functions called via <cite>tohil::call</cite>
@@ -177,8 +178,8 @@ by using the <cite>tohil::NONE</cite> sentinel.</p></li>
 with troubleshooting installation problems.</p></li>
 <li><p>Many new tests.</p></li>
 </ul>
-</div>
-<div class="section" id="numerous-bug-fixes">
+</section>
+<section id="numerous-bug-fixes">
 <h2>Numerous bug fixes<a class="headerlink" href="#numerous-bug-fixes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Python builtins can be called from Tcl-side tohil::call without
@@ -192,14 +193,14 @@ code to get sourced.  (It also requires the exact version of Tohil that it is,
 to reduce the risk of it loading some other version of the library when
 multiple versions are installed.)</p></li>
 </ul>
-</div>
-<div class="section" id="considerably-improved-documentation">
+</section>
+<section id="considerably-improved-documentation">
 <h2>Considerably improved documentation<a class="headerlink" href="#considerably-improved-documentation" title="Permalink to this headline">¶</a></h2>
 <p>We’ve considerably improved and extended the Tohil tutorial and
 reference, in Python-standard RST format,
 and are serving it out at <a class="reference external" href="https://flightaware.github.io/tohil-docs/">https://flightaware.github.io/tohil-docs/</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -300,11 +301,11 @@ and are serving it out at <a class="reference external" href="https://flightawar
 <br />
     <br />
 
-    Last updated on Aug 11, 2021.
+    Last updated on Sep 06, 2021.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
     </div>
 
   </body>

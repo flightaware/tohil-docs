@@ -4,13 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>3. Using Python From Tcl &#8212; Tohil 4.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -155,7 +156,7 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="using-python-from-tcl">
+  <section id="using-python-from-tcl">
 <span id="tutorial-python-from-tcl"></span><h1><span class="section-number">3. </span>Using Python From Tcl<a class="headerlink" href="#using-python-from-tcl" title="Permalink to this headline">¶</a></h1>
 <p>In this section we’ll introduce using Python from Tcl.</p>
 <p>Hopefully you’ve got Tcl and Python and Tohil installed and you can
@@ -170,7 +171,7 @@ follow along and try stuff out.</p>
 <p>If the package-require failed then please visit
 the installation instructions and get tohil built and installed
 on your computer.</p>
-<div class="section" id="tohil-eval">
+<section id="tohil-eval">
 <h2><span class="section-number">3.1. </span>tohil::eval<a class="headerlink" href="#tohil-eval" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">tohil</span><span class="p">::</span><span class="nb">eval</span> <span class="s2">&quot;37 + 5&quot;</span>
 <span class="mi">42</span>
@@ -184,8 +185,8 @@ and returned the result back to tcl.</p>
 42
 </pre></div>
 </div>
-</div>
-<div class="section" id="tohil-exec">
+</section>
+<section id="tohil-exec">
 <h2><span class="section-number">3.2. </span>tohil::exec<a class="headerlink" href="#tohil-exec" title="Permalink to this headline">¶</a></h2>
 <p>In Python, <em>eval</em> evaluates a single expression and returns the
 result, so even trying to eval something like <code class="docutils literal notranslate"><span class="pre">answer</span> <span class="pre">=</span> <span class="pre">42</span></code> is
@@ -219,8 +220,8 @@ and returns their output, something much different.)</p>
 two integers yielded an integer result while Python, a float?  Then
 we used Python’s integer division <em>//</em> to get integer division, while
 trying that with Tcl was an error because Tcl doesn’t have that operator.</p>
-</div>
-<div class="section" id="tohil-import">
+</section>
+<section id="tohil-import">
 <h2><span class="section-number">3.3. </span>tohil::import<a class="headerlink" href="#tohil-import" title="Permalink to this headline">¶</a></h2>
 <p>OK, we can start doing Python stuff from Tcl, like import a module.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">tohil</span><span class="p">::</span><span class="n">exec</span> <span class="s2">&quot;import numpy&quot;</span>
@@ -230,8 +231,8 @@ trying that with Tcl was an error because Tcl doesn’t have that operator.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">tohil</span><span class="p">::</span><span class="kn">import</span> <span class="nn">numpy</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="notes-about-exec">
+</section>
+<section id="notes-about-exec">
 <h2><span class="section-number">3.4. </span>notes about exec<a class="headerlink" href="#notes-about-exec" title="Permalink to this headline">¶</a></h2>
 <p>One thing that can trip people up is it can be surprising that
 tohil::exec never returns anything.</p>
@@ -247,14 +248,14 @@ with how exec works in Python. It probably shouldn’t
 be a surprise that Tohil is using Python’s
 eval and exec mechanisms at the C level to provide these capabilities
 to Tcl.</p>
-</div>
-<div class="section" id="tohil-run">
+</section>
+<section id="tohil-run">
 <h2><span class="section-number">3.5. </span>tohil::run<a class="headerlink" href="#tohil-run" title="Permalink to this headline">¶</a></h2>
 <p>tohil::run is a special version of tohil::exec that grabs anything
 Python emits to stdout while the exec is running, and returns it
 to the caller.</p>
-</div>
-<div class="section" id="tohil-call">
+</section>
+<section id="tohil-call">
 <h2><span class="section-number">3.6. </span>tohil::call<a class="headerlink" href="#tohil-call" title="Permalink to this headline">¶</a></h2>
 <p>If you start creating from Tcl, Python to be executed with
 eval and exec, you may notice there’s a risk that if you use
@@ -270,10 +271,12 @@ arguments, without having to pass it through Python’s eval or exec and running
 the risk that Python metacharacters appearing in the data will cause quoting
 problems, accidental code execution, etc.</p>
 <p>When you use tohil::call, Tohil converts all of your arguments to Python
-Unicode, unless an argument is comprised of the special sentinel <cite>tohil::NONE</cite>,
-in which case that argument is replaced by the Python “None” data type.</p>
-</div>
-<div class="section" id="tohil-interact">
+Unicode, unless an argument is comprised of a special sentinel, normally
+<cite>tohil::NONE</cite>, in which case that argument is replaced by the Python “None”
+data type.</p>
+<p>This sentinal can be changed with the <cite>-nonevalue</cite> argument.</p>
+</section>
+<section id="tohil-interact">
 <h2><span class="section-number">3.7. </span>tohil::interact<a class="headerlink" href="#tohil-interact" title="Permalink to this headline">¶</a></h2>
 <p>Take tohil to eleven.  You’re on ten here… all the way up… You’re
 on ten on your guitar… where can you go from there?  Where?  Nowhere.
@@ -291,8 +294,8 @@ return to the Tcl one.</p>
  <span class="n">bar</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="using-tohil-from-rivet">
+</section>
+<section id="using-tohil-from-rivet">
 <h2><span class="section-number">3.8. </span>Using tohil from Rivet<a class="headerlink" href="#using-tohil-from-rivet" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https:/https://tcl.apache.org/rivet/">Apache Rivet</a> is an Apache webserver
 module that provides among other things a way for webpages to be made from HTML
@@ -315,8 +318,8 @@ tohil::exec {
 ?&gt;
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -420,11 +423,11 @@ tohil::exec {
 <br />
     <br />
 
-    Last updated on Aug 04, 2021.
+    Last updated on Sep 06, 2021.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
     </div>
 
   </body>

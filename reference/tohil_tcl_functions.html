@@ -4,13 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Tohil Tcl Functions &#8212; Tohil 4.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -140,31 +141,34 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="tohil-tcl-functions">
+  <section id="tohil-tcl-functions">
 <h1>Tohil Tcl Functions<a class="headerlink" href="#tohil-tcl-functions" title="Permalink to this headline">¶</a></h1>
 <p>Once a <code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">require</span> <span class="pre">Tohil</span></code> has been performed
 from Tcl interpreter, the following commands are available:</p>
 <dl class="py function">
-<dt>
-<code class="sig-name descname"><span class="pre">tohil::call</span> <span class="pre">[-kwlist</span> <span class="pre">list]</span> <span class="pre">[obj.]function</span> <span class="pre">[arg...]</span></code></dt>
-<dd><p><em>tohil::call</em> provides a way to invoke a Python function,
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">tohil::call</span> <span class="pre">[-kwlist</span> <span class="pre">list]</span> <span class="pre">[-nonevalue</span> <span class="pre">word]</span> <span class="pre">[obj.]function</span> <span class="pre">[arg...]</span></span></dt>
+<dd><p><em>tohil::call</em> provides a way to invoke a Python function from Tcl,
 with zero or more positional parameters and zero or more
 named parameters, without having to pass the parameters through
 Python’s <em>eval</em> or <em>exec</em> and running the risk that Python
 metacharacters appearing in the data will cause quoting problems,
-accidental code execution, etc.</p>
+unintentional code execution, etc.</p>
 <p>Whatever the Python function returns is returned to Tcl.</p>
 <p>If <em>-kwlist list</em> is specified, <em>list</em> contains key-value pairs
 that will be passed to the function as named parameters.</p>
 <p>When you use tohil::call, Tohil converts all of your arguments
-to Python Unicode, unless an argument is comprised of the special
-sentinel <cite>tohil::NONE</cite>, in which case the Python “None” data type
-is substituted in place of that argument.</p>
+to Python Unicode, unless an argument is comprised of  special
+sentinel (normally <cite>tohil::NONE</cite>, or the argument to the -nonevalue
+option), in which case the Python “None” data type is substituted
+in place of that argument.</p>
+<p>If <em>-nonevalue word</em> is specified, then this overrides the default sentinel
+string.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt>
-<code class="sig-name descname"><span class="pre">tohil::eval</span> <span class="pre">evalString</span></code></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">tohil::eval</span> <span class="pre">evalString</span></span></dt>
 <dd><p><em>evalString</em> contains a valid Python expression.  Tohil
 evaluates the string using the Python interpreter and
 returns to Tcl whatever Python returned.</p>
@@ -175,8 +179,8 @@ the caller.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt>
-<code class="sig-name descname"><span class="pre">tohil::exec</span></code></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">tohil::exec</span></span></dt>
 <dd><p><em>tohil::exec</em> evaluates the code passed to it, similarly to
 Python’s <em>exec</em> function.  Nothing is returned.</p>
 <p>If the Python code prints anything, it goes to stdout using Python’s
@@ -186,25 +190,26 @@ to a string, or whatever, in the normal Python manner.
 </dd></dl>
 
 <dl class="py function">
-<dt>
-<code class="sig-name descname"><span class="pre">tohil::import</span> <span class="pre">module</span></code></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">tohil::import</span> <span class="pre">module</span></span></dt>
 <dd><p>Import the specified module into the globals of the Python interpreter.</p>
 <p>The name of the module may be of the form module.submodule.</p>
 <p>You can do the same thing using <em>exec</em> and, currently, exercise
-more control, for example <code class="docutils literal notranslate"><span class="pre">tohil::exec</span> <span class="pre">&quot;from</span> <span class="pre">io</span> <span class="pre">import</span> <span class="pre">StringIO&quot;</span></code>.</p>
+more control, for example <code class="docutils literal notranslate"><span class="pre">tohil::exec</span> <span class="pre">&quot;from</span> <span class="pre">io</span> <span class="pre">import</span> <span class="pre">StringIO&quot;</span></code>.
+However, this reads cleanly and is often enough.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt>
-<code class="sig-name descname"><span class="pre">tohil::interact</span></code></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">tohil::interact</span></span></dt>
 <dd><p>We run <em>tohil::interact</em> from the Tcl command prompt to enter the Python
 interactive loop.  When we’re done, we send end of file (^D) to end the
 Python loop and return to the Tcl one.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt>
-<code class="sig-name descname"><span class="pre">tohil::run</span></code></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">tohil::run</span></span></dt>
 <dd><p>tohil::run evaluates the code passed to it as if with Python’s <em>exec</em>,
 but unlike <em>tohil::exec</em>, anything emitted by the Python code to
 Python’s stdout (print, etc) is captured by <em>tohil::run</em> and returned
@@ -212,18 +217,19 @@ to the caller.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt>
-<code class="sig-name descname"><span class="pre">tohil::redirect_stdout_to_python</span></code></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">tohil::redirect_stdout_to_python</span></span></dt>
 <dd><p>Redirects Tcl’s standard output to be sent through Python’s I/O
 subsystem.</p>
 <p>Works by pushing a custom Tcl channel handler onto Tcl’s stdout channel.
 The handler passes everything written to Tcl’s stdout to Python
 using Python’s <em>sys.stdout.write</em>.</p>
+<p>This allows, among other things, Tcl output to show up in Jupyter Notebook.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tohil_rivet">
-<code class="sig-name descname"><span class="pre">tohil_rivet</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tohil_rivet" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil_rivet">
+<span class="sig-name descname"><span class="pre">tohil_rivet</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tohil_rivet" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>tohil_rivet</em> redirects data written from Python to standard output
 to be delivered through Tcl’s standard output instead.</p>
 <p>When Tcl is being executed from within the
@@ -232,7 +238,7 @@ module, the output of Python code invoked from Tcl
 using Tohil will be written into webpage Apache is constructing.</p>
 </dd></dl>
 
-</div>
+</section>
 
 
             <div class="clearer"></div>
@@ -321,11 +327,11 @@ using Tohil will be written into webpage Apache is constructing.</p>
 <br />
     <br />
 
-    Last updated on Aug 04, 2021.
+    Last updated on Sep 06, 2021.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
     </div>
 
   </body>

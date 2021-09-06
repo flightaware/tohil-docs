@@ -4,13 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Tohil Types &#8212; Tohil 4.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -154,14 +155,14 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="tohil-types">
+  <section id="tohil-types">
 <span id="id1"></span><h1>Tohil Types<a class="headerlink" href="#tohil-types" title="Permalink to this headline">¶</a></h1>
 <p>The following sections describe the types that importing tohil makes available
 to the Python interpreter.</p>
 <p id="index-0">The principal tohil types are <em>tclobj</em> and <em>tcldict</em>.  There are a few additional
 types for iterators and exceptions.</p>
 <p>Tclobjs and tcldicts are mutable.  As with native Python types, methods that add,
-subtract, or rearrange their members in place, and don’t return a specific
+subtract, or rearrange their members in place, don’t return a specific
 item, returning <code class="docutils literal notranslate"><span class="pre">None</span></code> rather than the collection instance itself.</p>
 <p>Some operations are supported by both object types; in particular,
 they can be compared for equality, tested for truth
@@ -176,7 +177,7 @@ constructed from.  A tclobj can be created as an empty Tcl object, or
 from a Python None object, a Python boolean, int, float, or string,
 a Python list, tuple, set, dict, sequence
 or map, and Unicode/UTF-8 translations should work fine.</p>
-<div class="section" id="testing-tclobj-truth-values">
+<section id="testing-tclobj-truth-values">
 <span id="tohil-truth"></span><h2>Testing Tclobj Truth Values<a class="headerlink" href="#testing-tclobj-truth-values" title="Permalink to this headline">¶</a></h2>
 <p id="index-1">Any tclobj can be tested for truth value, for use in an <cite>if</cite> or
 <cite>while</cite> condition or as operand of a Boolean operations.</p>
@@ -211,36 +212,40 @@ close to Python rules, however.</p>
 <span class="gr">TypeError</span>: <span class="n">expected boolean value but got &quot;not-a-boolean&quot;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="comparisons">
+</section>
+<section id="comparisons">
 <span id="tohil-comparisons"></span><h2>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this headline">¶</a></h2>
 <p>Tclobjs and tcldicts can be compared.  When they are asked to be
 compared, their string representations are compared.  If the Tcl
 objects don’t have strings available, they will be marshalled, and
 this could be high overhead for large and/or very complicated structures.</p>
-</div>
-<div class="section" id="using-tohil-tclobjs-as-numeric-types">
+</section>
+<section id="using-tohil-tclobjs-as-numeric-types">
 <span id="tohil-numeric"></span><h2>Using Tohil tclobjs as Numeric Types<a class="headerlink" href="#using-tohil-tclobjs-as-numeric-types" title="Permalink to this headline">¶</a></h2>
 <p>Tohil tclobjs can be freely used in Python code
 where integers or floating
 point numbers are needed.  The underlying Tcl object will be
-requested using Tcl standard library routines, causing a fetch
-of the cached representation if the cached representation is of
-the correct type, or an attempt by the Tcl library to convert
+requested using Tcl standard library routines, causing an
+efficient fetch
+of the Tcl object’s cached representation if the cached
+representation is of the correct type, or by causing
+an attempt by the Tcl library to convert
 the contents of the Tcl object to a python Boolean, integer or
 float.</p>
-</div>
-<div class="section" id="bitwise-operations-on-tohil-types">
+<p>Tohil will raise a TypeError exception if the Tcl object
+can’t be converted to the Python type that’s needed.</p>
+</section>
+<section id="bitwise-operations-on-tohil-types">
 <span id="tohil-bitstring-ops"></span><h2>Bitwise Operations on Tohil Types<a class="headerlink" href="#bitwise-operations-on-tohil-types" title="Permalink to this headline">¶</a></h2>
 <p>Tohil tclobj objects can be freely used as a source for boolean
 operations and shift counts.  Bitwise and, or, exclusive or,
 left and right shift, invert, and absolute value are supported.</p>
 <p>Attempting bitwise operations on a tclobj that isn’t or can’t
 be converted into an integer will fail with a TypeError exception raised.</p>
-</div>
-<div class="section" id="tclobjs-as-lists">
+</section>
+<section id="tclobjs-as-lists">
 <span id="tohil-typesseq"></span><h2>tclobjs as lists<a class="headerlink" href="#tclobjs-as-lists" title="Permalink to this headline">¶</a></h2>
-<p>Tclobjs whose internal contents are valid Tcl lists, can be largely
+<p>Tclobjs whose internal contents are valid Tcl lists can be largely
 treated as Python lists.</p>
 <p>Tclobjs-as-lists can be created from Python based on strings,
 lists, tuples, sets, even dicts.  It’s pretty cool.</p>
@@ -256,42 +261,42 @@ like strings even if they’re numbers.</p>
 an element with <code class="docutils literal notranslate"><span class="pre">s.append(x)</span></code>, extend <em>s</em> with the contents of a Python
 list, set, tuple, int, float, etc, or another tclobj, with
 <code class="docutils literal notranslate"><span class="pre">s.extend(x)</span></code>.</p>
-<p>(Because tclobjs are mutable, they cannot be directly used as a key
-in a dictionary or a value in a set.  If you need to use one as a key,
-wrap it with <em>str()</em> or something.)</p>
+<p>Because tclobjs are mutable, they cannot be directly used as a key
+in a dictionary, or a value in a set.  If you need to use one as a key,
+wrap it with <em>str()</em> or something.</p>
 <p>You can clear a tclobj or tcldict using <code class="docutils literal notranslate"><span class="pre">s.clear()</span></code>, and pop items
 from the list using <code class="docutils literal notranslate"><span class="pre">s.pop([i])</span></code>.</p>
 <dl class="py method">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">list.</span></code><code class="sig-name descname"><span class="pre">append</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">list.</span></span><span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Add an item to the end of the list.  Equivalent to <code class="docutils literal notranslate"><span class="pre">a[len(a):]</span> <span class="pre">=</span> <span class="pre">[x]</span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">list.</span></code><code class="sig-name descname"><span class="pre">extend</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">list.</span></span><span class="sig-name descname"><span class="pre">extend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Extend the list by appending all the items from the iterable.  Equivalent to
 <code class="docutils literal notranslate"><span class="pre">a[len(a):]</span> <span class="pre">=</span> <span class="pre">iterable</span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">list.</span></code><code class="sig-name descname"><span class="pre">insert</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">list.</span></span><span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Insert an item at a given position.  The first argument is the index of the
 element before which to insert, so <code class="docutils literal notranslate"><span class="pre">a.insert(0,</span> <span class="pre">x)</span></code> inserts at the front of
 the list, and <code class="docutils literal notranslate"><span class="pre">a.insert(len(a),</span> <span class="pre">x)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">a.append(x)</span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">list.</span></code><code class="sig-name descname"><span class="pre">remove</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">list.</span></span><span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Remove the first item from the list whose value is equal to <em>x</em>.  It raises a
 <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> if there is no such item.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">list.</span></code><code class="sig-name descname"><span class="pre">pop</span></code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">i</span></em><span class="optional">]</span><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">list.</span></span><span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">i</span></em><span class="optional">]</span><span class="sig-paren">)</span></dt>
 <dd><p>Remove the item at the given position in the list, and return it.  If no index
 is specified, <code class="docutils literal notranslate"><span class="pre">a.pop()</span></code> removes and returns the last item in the list.  (The
 square brackets around the <em>i</em> in the method signature denote that the parameter
@@ -300,14 +305,14 @@ will see this notation frequently in the Python Library Reference.)</p>
 </dd></dl>
 
 <dl class="py method">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">list.</span></code><code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">list.</span></span><span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>Remove all items from the list.  Equivalent to <code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">a[:]</span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt>
-<code class="sig-prename descclassname"><span class="pre">list.</span></code><code class="sig-name descname"><span class="pre">index</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">x</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">start</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">end</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span></dt>
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">list.</span></span><span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">x</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">start</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">end</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span></dt>
 <dd><p>Return zero-based index in the list of the first item whose value is equal to <em>x</em>.
 Raises a <code class="xref py py-exc docutils literal notranslate"><span class="pre">ValueError</span></code> if there is no such item.</p>
 <p>The optional arguments <em>start</em> and <em>end</em> are interpreted as in the slice
@@ -336,8 +341,8 @@ sequence rather than the <em>start</em> argument.</p>
 <span class="go">&#39;kiwi&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="mapping-types-tcldict">
+</section>
+<section id="mapping-types-tcldict">
 <span id="typesmapping"></span><h2>Mapping Types — <a class="reference internal" href="#tcldict" title="tcldict"><code class="xref py py-class docutils literal notranslate"><span class="pre">tcldict</span></code></a><a class="headerlink" href="#mapping-types-tcldict" title="Permalink to this headline">¶</a></h2>
 <p>Tcldicts are a Python type that manages a Tcl object of a dictionary structure.
 Most things you can do with a Python dicts you can do with a tcldict.</p>
@@ -346,8 +351,8 @@ specified as a Python list, the Tcl dictionary is managed as a hierarchy
 of dictionaries.</p>
 <p>Tcldicts can be created by the <a class="reference internal" href="#tcldict" title="tcldict"><code class="xref py py-class docutils literal notranslate"><span class="pre">tcldict</span></code></a> constructor.</p>
 <dl class="py class">
-<dt id="tcldict">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">tcldict</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">val</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">kwargs</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#tcldict" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tcldict">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">tcldict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">val</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">kwargs</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#tcldict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a new tcldict initialized from an optional positional argument
 and a possibly empty set of keyword arguments.</p>
 <p>Tcldicts can be created by passing a Python <code class="docutils literal notranslate"><span class="pre">list</span></code>, <code class="docutils literal notranslate"><span class="pre">dict</span></code>,
@@ -372,20 +377,20 @@ int, float, list, set, dict, tuple, tohil.tclobj or tohil.tcldict.</p>
 <p>These are the operations that dictionaries support (and therefore, custom
 mapping types should support too):</p>
 <dl class="describe">
-<dt>
-<code class="sig-name descname"><span class="pre">list(d)</span></code></dt>
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">list(d)</span></span></dt>
 <dd><p>Return a list of all the keys used in the tcldict <em>d</em>.</p>
 </dd></dl>
 
 <dl class="describe">
-<dt>
-<code class="sig-name descname"><span class="pre">len(d)</span></code></dt>
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">len(d)</span></span></dt>
 <dd><p>Return the number of items in the tcldict <em>d</em>.</p>
 </dd></dl>
 
 <dl class="describe">
-<dt>
-<code class="sig-name descname"><span class="pre">d[key]</span></code></dt>
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">d[key]</span></span></dt>
 <dd><p>Return the item of <em>d</em> with key <em>key</em>.  Raises a <code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code> if <em>key</em> is
 not in the map.</p>
 <p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">__missing__()</span></code> method supported by native Python dicts is
@@ -393,14 +398,14 @@ not support by tohil tcldicts.</p>
 </dd></dl>
 
 <dl class="describe">
-<dt>
-<code class="sig-name descname"><span class="pre">d[key]</span> <span class="pre">=</span> <span class="pre">value</span></code></dt>
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">d[key]</span> <span class="pre">=</span> <span class="pre">value</span></span></dt>
 <dd><p>Set <code class="docutils literal notranslate"><span class="pre">d[key]</span></code> to <em>value</em>.</p>
 </dd></dl>
 
 <dl class="describe">
-<dt>
-<code class="sig-name descname"><span class="pre">del</span> <span class="pre">d[key]</span></code></dt>
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">del</span> <span class="pre">d[key]</span></span></dt>
 <dd><p>Remove <code class="docutils literal notranslate"><span class="pre">d[key]</span></code> from <em>d</em>.  Note that while native Python
 dicts raise a <code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code> if <em>key</em> is not in the map,
 it is not an error to attempt to delete a key from a tohil
@@ -408,41 +413,41 @@ dict.</p>
 </dd></dl>
 
 <dl class="describe">
-<dt>
-<code class="sig-name descname"><span class="pre">key</span> <span class="pre">in</span> <span class="pre">d</span></code></dt>
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">key</span> <span class="pre">in</span> <span class="pre">d</span></span></dt>
 <dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <em>d</em> has a key <em>key</em>, else <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </dd></dl>
 
 <dl class="describe">
-<dt>
-<code class="sig-name descname"><span class="pre">key</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">d</span></code></dt>
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">key</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">d</span></span></dt>
 <dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">key</span> <span class="pre">in</span> <span class="pre">d</span></code>.</p>
 </dd></dl>
 
 <dl class="describe">
-<dt>
-<code class="sig-name descname"><span class="pre">iter(d)</span></code></dt>
+<dt class="sig sig-object">
+<span class="sig-name descname"><span class="pre">iter(d)</span></span></dt>
 <dd><p>Return an iterator over the keys of the dictionary.  This is a shortcut
 for <code class="docutils literal notranslate"><span class="pre">iter(d.keys())</span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="tcldict.clear">
-<code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tcldict.clear" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tcldict.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tcldict.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove all items from the dictionary.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="tcldict.get">
-<code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">key</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">default</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#tcldict.get" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tcldict.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">key</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">default</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#tcldict.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the value for <em>key</em> if <em>key</em> is in the dictionary, else <em>default</em>.
 If <em>default</em> is not given, it defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>, so that this method
 never raises a <code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="tcldict.items">
-<code class="sig-name descname"><span class="pre">items</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tcldict.items" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tcldict.items">
+<span class="sig-name descname"><span class="pre">items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tcldict.items" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a new view of the tcldict’s items (<code class="docutils literal notranslate"><span class="pre">(key,</span> <span class="pre">value)</span></code> pairs).
 Note that unlike native Python dict items, tcldict items are not
 mutable.  You probably didn’t even know that dict items are mutable.
@@ -450,8 +455,8 @@ See the <a class="reference internal" href="#dict-views"><span class="std std-re
 </dd></dl>
 
 <dl class="py method">
-<dt id="tcldict.keys">
-<code class="sig-name descname"><span class="pre">keys</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tcldict.keys" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tcldict.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tcldict.keys" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a new view of the tcldict’s keys.  As with items above, if
 you keep a reference to keys the keys doesn’t change if the tcldict
 does.  For more on keys in general, see the
@@ -459,16 +464,16 @@ does.  For more on keys in general, see the
 </dd></dl>
 
 <dl class="py method">
-<dt id="tcldict.pop">
-<code class="sig-name descname"><span class="pre">pop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">key</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">default</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#tcldict.pop" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tcldict.pop">
+<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">key</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">default</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#tcldict.pop" title="Permalink to this definition">¶</a></dt>
 <dd><p>If <em>key</em> is in the tcldict, remove it and return its value, else return
 <em>default</em>.  If <em>default</em> is not given and <em>key</em> is not in the dictionary,
 a <code class="xref py py-exc docutils literal notranslate"><span class="pre">KeyError</span></code> is raised.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="tcldict.update">
-<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">other</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#tcldict.update" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tcldict.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">other</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#tcldict.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the dictionary with the key/value pairs from <em>other</em>, overwriting
 existing keys.  Return <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <p><a class="reference internal" href="#tcldict.update" title="tcldict.update"><code class="xref py py-meth docutils literal notranslate"><span class="pre">update()</span></code></a> accepts either another dictionary object or an iterable of
@@ -480,8 +485,8 @@ update the docs.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="tcldict.values">
-<code class="sig-name descname"><span class="pre">values</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tcldict.values" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tcldict.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tcldict.values" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a new view of the tcldicts’s values.  Same notes apply.  See the
 <a class="reference internal" href="#dict-views"><span class="std std-ref">documentation of view objects</span></a>.</p>
 </dd></dl>
@@ -494,8 +499,8 @@ insertion order.  Tcldicts are traversed in hash order, which you can
 consider to effectively be random.  Sorry not sorry, not my fault.</p>
 </dd></dl>
 
-</div>
-<div class="section" id="dictionary-view-objects">
+</section>
+<section id="dictionary-view-objects">
 <span id="dict-views"></span><h2>Dictionary view objects<a class="headerlink" href="#dictionary-view-objects" title="Permalink to this headline">¶</a></h2>
 <p>The objects returned by <a class="reference internal" href="#tcldict.keys" title="tcldict.keys"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tcldict.keys()</span></code></a>, <a class="reference internal" href="#tcldict.values" title="tcldict.values"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tcldict.values()</span></code></a> and
 <a class="reference internal" href="#tcldict.items" title="tcldict.items"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tcldict.items()</span></code></a> are fake <em>view objects</em>.  Unlike native Python dicts,
@@ -503,8 +508,8 @@ they do not provide a dynamic view on the tcldict’s entries, which means
 that when the tcldict changes, the view does <strong>not</strong> reflect these changes.</p>
 <p>Dictionary views can be iterated over to yield their respective data, and
 support membership tests.</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -607,11 +612,11 @@ support membership tests.</p>
 <br />
     <br />
 
-    Last updated on Aug 04, 2021.
+    Last updated on Sep 06, 2021.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
     </div>
 
   </body>

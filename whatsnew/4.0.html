@@ -4,13 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>What’s New In Tohil 4.0 &#8212; Tohil 4.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -25,7 +26,7 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
     <link rel="next" title="What’s New In Tohil 3.2" href="3.2.html" />
-    <link rel="prev" title="What’s New in Tohil" href="index.html" />
+    <link rel="prev" title="What’s New In Tohil 4.1" href="4.1.html" />
     <link rel="canonical" href="https://docs.python.org/3/whatsnew/4.0.html" />
     
       
@@ -83,8 +84,8 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">What’s New in Tohil</a></p>
+  <p class="topless"><a href="4.1.html"
+                        title="previous chapter">What’s New In Tohil 4.1</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="3.2.html"
                         title="next chapter">What’s New In Tohil 3.2</a></p>
@@ -114,7 +115,7 @@
           <a href="3.2.html" title="What’s New In Tohil 3.2"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="What’s New in Tohil"
+          <a href="4.1.html" title="What’s New In Tohil 4.1"
              accesskey="P">previous</a> |</li>
 
           <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -154,9 +155,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="what-s-new-in-tohil-4-0">
+  <section id="what-s-new-in-tohil-4-0">
 <h1>What’s New In Tohil 4.0<a class="headerlink" href="#what-s-new-in-tohil-4-0" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="tclobj-default-return">
+<section id="tclobj-default-return">
 <h2>tclobj default return<a class="headerlink" href="#tclobj-default-return" title="Permalink to this headline">¶</a></h2>
 <p>This is a biggie.  Many Tohil functions accept a <em>to=</em> argument
 where you can specify a Python data type to convert a tcl
@@ -189,8 +190,8 @@ probably get an error because the tclobj doesn’t implement all of the
 str datatype’s methods.  In this
 case, adding a <em>to=str</em> to the Tohil call will be sufficient to get
 your code working under Tohil 4.</p>
-</div>
-<div class="section" id="python-subinterpreter-support">
+</section>
+<section id="python-subinterpreter-support">
 <h2>Python Subinterpreter Support<a class="headerlink" href="#python-subinterpreter-support" title="Permalink to this headline">¶</a></h2>
 <p>Full Python subinterpreter support!</p>
 <p>First, starting with version 4, Tohil properly supports multi-phase init,
@@ -221,8 +222,8 @@ how we were called, for example we are being called from Python with
 to do some Python thing, you only get what it calls you with.  So we
 stashed the interpreter pointer in a capsule in Tohil’s Python data types’
 dictionaries and in __main__’s dictionary.  It turned out really nice.</p>
-</div>
-<div class="section" id="support-for-separate-virtual-interpreters-in-rivet">
+</section>
+<section id="support-for-separate-virtual-interpreters-in-rivet">
 <h2>Support for Separate Virtual Interpreters in Rivet<a class="headerlink" href="#support-for-separate-virtual-interpreters-in-rivet" title="Permalink to this headline">¶</a></h2>
 <p>A nice bit of fallout from the above, if you’re running the Apache
 webserver with the
@@ -232,8 +233,8 @@ virtual hosts run in separate Tcl interpreters, known as separate virtual
 interpreters, each vhost that does a <code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">require</span> <span class="pre">tohil</span></code> will get its
 own Python subinterpreter, isolating Python between the vhosts just as
 Tcl is.</p>
-</div>
-<div class="section" id="a-function-can-now-be-specified-in-a-to-arg">
+</section>
+<section id="a-function-can-now-be-specified-in-a-to-arg">
 <h2>A function can now be specified in a to= arg<a class="headerlink" href="#a-function-can-now-be-specified-in-a-to-arg" title="Permalink to this headline">¶</a></h2>
 <p>The <em>to=</em> argument to a Tohil function such as <em>tohil.eval</em>,
 <em>tohil.call</em>, etc, has until now been required to specify a
@@ -249,15 +250,15 @@ relevant tohil function will return.</p>
 <p>This provides an additional way for a Tohil developer to customize
 the return of some Tcl activity in order to make it more standard
 and readily useful to the Python caller.</p>
-</div>
-<div class="section" id="user-facing-behavior-changes">
+</section>
+<section id="user-facing-behavior-changes">
 <h2>User-Facing Behavior Changes<a class="headerlink" href="#user-facing-behavior-changes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>When Tcl is the parent, <code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">require</span> <span class="pre">tohil</span></code> will, in addition to
 initializing Python, automatically import tohil on the Python side.</p></li>
 </ul>
-</div>
-<div class="section" id="internal-changes">
+</section>
+<section id="internal-changes">
 <h2>Internal Changes<a class="headerlink" href="#internal-changes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>When Tcl is the parent and Tohil initializes Python from scratch,
@@ -266,16 +267,16 @@ prevent Python from registering signal handlers.  (Signal handling probably
 ought to be Tcl’s business under this circumstance.)</p></li>
 <li><p>Internal code refactoring and cleanup.</p></li>
 </ul>
-</div>
-<div class="section" id="documentation-improvements">
+</section>
+<section id="documentation-improvements">
 <h2>Documentation Improvements<a class="headerlink" href="#documentation-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Greatly improved documentation in Python-standard format.</p></li>
 <li><p>Makefile and docs for building the docs.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">serve</span></code> target to serve the docs via http (for devs)</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -299,8 +300,8 @@ ought to be Tcl’s business under this circumstance.)</p></li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">What’s New in Tohil</a></p>
+  <p class="topless"><a href="4.1.html"
+                        title="previous chapter">What’s New In Tohil 4.1</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="3.2.html"
                         title="next chapter">What’s New In Tohil 3.2</a></p>
@@ -329,7 +330,7 @@ ought to be Tcl’s business under this circumstance.)</p></li>
           <a href="3.2.html" title="What’s New In Tohil 3.2"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="What’s New in Tohil"
+          <a href="4.1.html" title="What’s New In Tohil 4.1"
              >previous</a> |</li>
 
           <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -378,11 +379,11 @@ ought to be Tcl’s business under this circumstance.)</p></li>
 <br />
     <br />
 
-    Last updated on Aug 04, 2021.
+    Last updated on Sep 06, 2021.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
     </div>
 
   </body>

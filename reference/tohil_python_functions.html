@@ -4,13 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Tohil Python Functions &#8212; Tohil 4.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -140,38 +141,39 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="tohil-python-functions">
+  <section id="tohil-python-functions">
 <h1>Tohil Python Functions<a class="headerlink" href="#tohil-python-functions" title="Permalink to this headline">¶</a></h1>
 <p>Tohil has a number of functions and data types that it provides
 when the tohil package has been imported.</p>
 <dl class="py function">
-<dt id="tohil.call">
-<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">call</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span> <span class="pre">args</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">to=type</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#tohil.call" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil.call">
+<span class="sig-prename descclassname"><span class="pre">tohil.</span></span><span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span> <span class="pre">args</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">to=type</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#tohil.call" title="Permalink to this definition">¶</a></dt>
 <dd><p>Invoke a Tcl command while specifying each argument explicitly,
 and returns the result.</p>
-<p>This way, even if some arguments contain Tcl metacharacters such
+<p>Using tohil.call, even if some arguments contain Tcl metacharacters such
 as dollar sign, backslash, and square brackets, Tcl will not
 evaluate them.</p>
 <p>Zero or more arguments can be specified.  If one or more arguments
-are specified, the first argument is the command name (could be a proc
-or a C function or whatever), and whatever additional positional
+are specified, the first argument is the command name (which could be
+the name of a proc or a Tcl C function or whatever),
+and whatever additional positional
 arguments are passed as arguments to the command.</p>
 <p>If no arguments are specified, that’s legal for Tcl.  The Tcl
-interpreter will evaluate an empty string, and an empty result.</p>
+interpreter will evaluate an empty string, and return an empty result.</p>
 <p>The optional <em>to=</em> named parameter can specify a Python data type
 to return, such as <em>str</em>, <em>int</em>, <em>float</em>, <em>bool</em>, <em>list</em>, <em>set</em>,
 <em>dict</em>, <em>tuple</em>, <em>tohil.tclobj</em>, <em>tohil.tcldict</em>, or a function that takes
 one argument and returns a result.</p>
 <p>If the evaluation results in a Tcl error and the error is not caught
-by inline Tcl code using <em>try</em> or <em>catch</em>, that is to say if an
+by inline Tcl code using Tcl’s <em>try</em> or <em>catch</em>, that is to say if an
 uncaught Tcl error is received by Tohil from the attempt, Tohil
-uses information about the Tcl error to raise a TclError exception
-to Python.</p>
+uses information about the Tcl error to create, populate and raise a
+TclError exception to Python.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tohil.convert">
-<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">convert</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">python_object</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.convert" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil.convert">
+<span class="sig-prename descclassname"><span class="pre">tohil.</span></span><span class="sig-name descname"><span class="pre">convert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">python_object</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">to=type</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#tohil.convert" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert some Python object into a Tcl object and then convert
 back to a Python object, a tohil.tclobj by default, but it can
 be converted to any optional <em>to=</em> destination type or be passed through
@@ -179,8 +181,8 @@ a <em>to=</em> function.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tohil.eval">
-<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">eval</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">[tcl_code=]code[,</span> <span class="pre">to=type]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.eval" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil.eval">
+<span class="sig-prename descclassname"><span class="pre">tohil.</span></span><span class="sig-name descname"><span class="pre">eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">[tcl_code=]code[,</span> <span class="pre">to=type]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.eval" title="Permalink to this definition">¶</a></dt>
 <dd><p>Given a string of valid Tcl code, including at the caller’s discretion
 multiple statements separated by semicolons, or multiline blocks,
 evaluate <em>tcl_code</em> using the Tcl interpreter, and return its result,
@@ -191,8 +193,8 @@ Python.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tohil.exists">
-<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">exists</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">[var=]varString</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.exists" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil.exists">
+<span class="sig-prename descclassname"><span class="pre">tohil.</span></span><span class="sig-name descname"><span class="pre">exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">[var=]varString</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.exists" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns True if the variable named by varString exists, or False if it
 doesn’t.</p>
 <p><em>varString</em> can be an element of a Tcl array by using Tcl array notation,
@@ -201,16 +203,16 @@ based on the existence of the specified element in the specified array.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tohil.expr">
-<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">expr</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">[expression=]exprString[,</span> <span class="pre">to=type]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.expr" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil.expr">
+<span class="sig-prename descclassname"><span class="pre">tohil.</span></span><span class="sig-name descname"><span class="pre">expr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">[expression=]exprString[,</span> <span class="pre">to=type]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.expr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate <em>exprString</em> as a Tcl expression, and returns the result.</p>
 <p>The optional <em>to=</em> named parameter can be supplied to specify one of
 the supported Python data types or functions.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tohil.getvar">
-<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">getvar</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">[var=]varString,</span> <span class="pre">to=tohil.tclobj[,</span> <span class="pre">default=defVal]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.getvar" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil.getvar">
+<span class="sig-prename descclassname"><span class="pre">tohil.</span></span><span class="sig-name descname"><span class="pre">getvar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">[var=]varString,</span> <span class="pre">to=tohil.tclobj[,</span> <span class="pre">default=defVal]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.getvar" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a Tcl variable or array element and return it to the caller.</p>
 <p>The variable is accessed from the current Tcl context, which may
 be global.</p>
@@ -225,26 +227,29 @@ specified variable or array element doesn’t exist in the
 Tcl interpreter, the default value will be returned instead.
 <em>default=None</em> is a valid default value and is distinct from
 not providing a default value.</p>
+<p>If the variable doesn’t exist and a a default value was not provided,
+Tohil will raise a Python NameError exception.</p>
 <p>Note that default values are coerced to the <em>to=</em> data type,
 a tohil.tclobj by default.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt>
-<code class="sig-name descname"><span class="pre">tcl</span> <span class="pre">=</span> <span class="pre">tohil.import_tcl()</span></code></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">tcl</span> <span class="pre">=</span> <span class="pre">tohil.import_tcl()</span></span></dt>
 <dd><p>Using Tcl’s introspection capabilities, traverse all Tcl
-namespaces, identify all procs and C commands in each one.</p>
+namespaces, and identify all procs and C commands in each one.</p>
 <p>Create a hierarchy of TclNamespace objects returning the
 top-level namespace object.</p>
-<p>For the procs, suss out their arguments andf default values,
-and attach to each namespace entrypoints for each proc and
+<p>For each proc, suss out its arguments and default values,
+if any,
+and attach, to each namespace, entrypoints for each proc and
 C command so that calling the Tcl procs looks very much
 like calling any Python function.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tohil.incr">
-<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">incr</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">[var=]varName[,</span> <span class="pre">[incr=]increment]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.incr" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil.incr">
+<span class="sig-prename descclassname"><span class="pre">tohil.</span></span><span class="sig-name descname"><span class="pre">incr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">[var=]varName[,</span> <span class="pre">[incr=]increment]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.incr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Take a Tcl variable name or array element as specified
 by the <em>varName</em> string, and attempt to increment it.</p>
 <p>The optional increment amount can be specified positionally
@@ -253,12 +258,12 @@ The increment amount can be negative.</p>
 <p>If the variable doesn’t exist, it is created and set
 to the increment amount.</p>
 <p>If the contents of the variable preclude it being used as
-an integer, a Python TypeError exception will be thrown.</p>
+an integer, Tohil will raise a Python TypeError exception.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tohil.interact">
-<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">interact</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tohil.interact" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil.interact">
+<span class="sig-prename descclassname"><span class="pre">tohil.</span></span><span class="sig-name descname"><span class="pre">interact</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tohil.interact" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run the Tcl interactive command loop on stdin, which hopefully
 is a terminal, until the user sends EOF, at which point they’ll
 be returned to the Python command line, or whatever the Python
@@ -266,29 +271,31 @@ code that called <em>tohil.interact()</em> does next.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tohil.package_require">
-<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">package_require</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">packageName[,</span> <span class="pre">[version=]versionID]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.package_require" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil.package_require">
+<span class="sig-prename descclassname"><span class="pre">tohil.</span></span><span class="sig-name descname"><span class="pre">package_require</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">packageName[,</span> <span class="pre">[version=]versionID]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.package_require" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load the specified package.  A specific package version
 can be specified, either positionally or by name using
 the <em>version=</em> parameter.</p>
 <p>This is a shortcut for
-<code class="docutils literal notranslate"><span class="pre">tohil.eval(f&quot;package</span> <span class="pre">require</span> <span class="pre">{packageName}</span> <span class="pre">{versionID}&quot;)</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">tohil.eval(f&quot;package</span> <span class="pre">require</span> <span class="pre">{packageName}</span> <span class="pre">{versionID}&quot;)</span></code> or
+<code class="docutils literal notranslate"><span class="pre">tohi..call(&quot;package&quot;,</span> <span class="pre">&quot;require&quot;,</span> <span class="pre">packageName,</span> <span class="pre">versionID)</span></code>.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tohil.register_callback">
-<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">register_callback</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.register_callback" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil.register_callback">
+<span class="sig-prename descclassname"><span class="pre">tohil.</span></span><span class="sig-name descname"><span class="pre">register_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.register_callback" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a Tcl command with the given name linked to the given Python
-callable. When the Tcl-side command is invoked, tohil will directly invoke
+callable.  When the Tcl-side command is invoked, tohil will directly invoke
 the corresponding Python function, passing along any arguments.
 This is useful in cases where the Tcl event
 loop is being used to execute code asynchronously and you want to handle
-the callbacks using Python.</p>
+the callbacks using Python, but in general allows a Python function to
+be made directly callable as a Tcl function.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tohil.result">
-<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">result</span></code><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">to=type</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#tohil.result" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil.result">
+<span class="sig-prename descclassname"><span class="pre">tohil.</span></span><span class="sig-name descname"><span class="pre">result</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">to=type</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#tohil.result" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the Tcl interpreter result object.</p>
 <p>The Tcl interpreter has a “result object.”  It contains
 the result of the last thing the interpreter did.</p>
@@ -300,28 +307,29 @@ the Tohil devs to be able to see what’s in there.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tohil.run">
-<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tohil.run" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil.run">
+<span class="sig-prename descclassname"><span class="pre">tohil.</span></span><span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tohil.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform tohil.exec, but redirect stdout emitted while
 python is running it into a string and return
-the string to run’s caller after the exec has finished.</p>
-<p>Python users are often surprised that exec doesn’t return
+the string to tohil.run’s caller after the exec has finished.</p>
+<p>Python users are often surprised that <em>exec</em> doesn’t return
 anything.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tohil.setvar">
-<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">setvar</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">[var=]varName[,</span> <span class="pre">[value=]value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.setvar" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil.setvar">
+<span class="sig-prename descclassname"><span class="pre">tohil.</span></span><span class="sig-name descname"><span class="pre">setvar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">[var=]varName[,</span> <span class="pre">[value=]value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.setvar" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set a variable or array element referenced by <em>varName</em>
 to the value specified by <em>value</em>.</p>
 <p>A few errors are possible, such as trying to set an array
 element of a scalar variable or set a scalar variable
-that is actually an array.</p>
+that is actually an array.  Tohil raises these as a
+Python RuntimeError exception.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tohil.source">
-<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">source</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.source" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil.source">
+<span class="sig-prename descclassname"><span class="pre">tohil.</span></span><span class="sig-name descname"><span class="pre">source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.source" title="Permalink to this definition">¶</a></dt>
 <dd><p>Take the contents of the file specified by <em>fileName</em> and
 evaluate it using the Tcl interpreter.  The return value
 is the value of the last command executed in the script.</p>
@@ -329,19 +337,20 @@ is the value of the last command executed in the script.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tohil.subst">
-<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">subst</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">substString</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.subst" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil.subst">
+<span class="sig-prename descclassname"><span class="pre">tohil.</span></span><span class="sig-name descname"><span class="pre">subst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">substString</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.subst" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform Tcl backslash, command and variable substiutions,
 and return the result of doing that without evaluating it.</p>
 <p>This is handy for generating some kind of string while
 substituting parts of it with embedded $-substitutions of
 Tcl variables and evaluation of Tcl code enclosed in square
 brackets.</p>
+<p>See also the Tcl “subst” manual page.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tohil.tclvar">
-<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">tclvar</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tohil.tclvar" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil.tclvar">
+<span class="sig-prename descclassname"><span class="pre">tohil.</span></span><span class="sig-name descname"><span class="pre">tclvar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">[var=]varName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.tclvar" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a tclobj object that shadows a Tcl variable or
 array element.</p>
 <p>Any accesses of the resulting tclobj from Python will
@@ -349,12 +358,14 @@ always begin with a (noncopying) access of the Tcl
 variable or array element’s contents, and any writing
 of the variable from Python (by doing things with the tclobj
 such as invoking methods on them, using Python list notation
-to update tclobj list elements, etc.</p>
+to update tclobj list elements, etc.) will likewise
+store the value into the corresponding variable or array element
+in the Tcl interpreter.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tohil.unset">
-<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">unset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.unset" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil.unset">
+<span class="sig-prename descclassname"><span class="pre">tohil.</span></span><span class="sig-name descname"><span class="pre">unset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tohil.unset" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>tohil.unset</em> is used to unset variables, array elements,
 and even entire arrays in the Tcl interpreter.</p>
 <p>Zero or more arguments specify names to unset.</p>
@@ -367,8 +378,8 @@ array elements that don’t exist.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="tohil.tcl_stdout_to_python">
-<code class="sig-prename descclassname"><span class="pre">tohil.</span></code><code class="sig-name descname"><span class="pre">tcl_stdout_to_python</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tohil.tcl_stdout_to_python" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tohil.tcl_stdout_to_python">
+<span class="sig-prename descclassname"><span class="pre">tohil.</span></span><span class="sig-name descname"><span class="pre">tcl_stdout_to_python</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tohil.tcl_stdout_to_python" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tcl normally uses its own I/O system to read and write data.</p>
 <p>As <em>tohil.rivet()</em> can be used from Python to redirect Python’s
 writing to standard output to go through Tcl’s I/O subsystem
@@ -380,11 +391,11 @@ instead send whatever is written through Python’s.</p>
 <p>If using <a class="reference external" href="https://https://jupyter.org">Jupyter Notebook</a>, invoking
 tohil.tcl_stdout_to_python() will cause
 any Tcl output written to standard output to appear in the notebook rather
-than in the log file or stdout of the jupyter command line that’s causing
-the Jupyter notebook webserver to exist.</p>
+than in the log file or stdout of the command
+running Jupyter notebook.</p>
 </dd></dl>
 
-</div>
+</section>
 
 
             <div class="clearer"></div>
@@ -473,11 +484,11 @@ the Jupyter notebook webserver to exist.</p>
 <br />
     <br />
 
-    Last updated on Aug 11, 2021.
+    Last updated on Sep 06, 2021.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
     </div>
 
   </body>

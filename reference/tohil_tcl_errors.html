@@ -4,13 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Tohil Tcl Errors &#8212; Tohil 4.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -140,9 +141,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="tohil-tcl-errors">
+  <section id="tohil-tcl-errors">
 <span id="id1"></span><h1>Tohil Tcl Errors<a class="headerlink" href="#tohil-tcl-errors" title="Permalink to this headline">¶</a></h1>
-<p>If Python code invoked from Tcl using Tohil results in
+<p>If Python code invoked from Tcl results in a
 Python exception that is not trapped by any of the Python code, Tohil
 will trap the exception, translate it into a Tcl error, and propagate
 the error back through Tcl.</p>
@@ -155,7 +156,8 @@ as a Python exception, see :ref:_tohil-exceptions.</p>
 code that was executing at the time of the exception being raised.</p>
 <p>The Tcl error code, often referred to as the Tcl global <em>errorCode</em>,
 but also accessible via a Tcl dict created via an argument to
-Tcl’s <em>catch</em> or <em>try</em></p>
+Tcl’s <em>catch</em> or <em>try</em>, is made available to Python through Tohil’s
+TclError object.</p>
 <p>Tcl’s errorCode represents additional information about an error in the form
 of a Tcl list that is intended to be easy easy to process with programs, unlike,
 for instance, error messages, which may be localized into different languages
@@ -183,7 +185,7 @@ by the base error message.</p>
 </pre></div>
 </div>
 <p>Here is another sample Tcl session catching an uncaught Python exception as a
-Tcl error, where the errorCode is set into the catch options var:</p>
+Tcl error, where the errorCode is set into the catch options variable:</p>
 <blockquote>
 <div><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;&gt;&gt;</span>
 <span class="go">$ tclsh</span>
@@ -203,7 +205,7 @@ from python code executed by tohil  File “tohil”, line 1, in &lt;module&gt;
 invoked from within
 “tohil::eval “no””} -errorline 1</p>
 </div></blockquote>
-</div>
+</section>
 
 
             <div class="clearer"></div>
@@ -292,11 +294,11 @@ invoked from within
 <br />
     <br />
 
-    Last updated on Aug 04, 2021.
+    Last updated on Sep 06, 2021.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
     </div>
 
   </body>

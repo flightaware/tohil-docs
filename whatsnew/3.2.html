@@ -4,13 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>What’s New In Tohil 3.2 &#8212; Tohil 4.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -155,9 +156,9 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="what-s-new-in-tohil-3-2">
+  <section id="what-s-new-in-tohil-3-2">
 <h1>What’s New In Tohil 3.2<a class="headerlink" href="#what-s-new-in-tohil-3-2" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="tclobjs">
+<section id="tclobjs">
 <h2>tclobjs<a class="headerlink" href="#tclobjs" title="Permalink to this headline">¶</a></h2>
 <p>Tohil Tcl objects, tclobjs, are a data type Tohil creates in Python.
 Tclobjs have gained considerable new power.  Among them, they now
@@ -193,15 +194,15 @@ renamed to <em>extend</em>, for compatibility with Python’s lists.</p>
 <li><p>tclobjs can now ingest python sets (in addition to lists, tuples, etc,
 which it already could do.)</p></li>
 </ul>
-</div>
-<div class="section" id="tclobj-shadow-vars">
+</section>
+<section id="tclobj-shadow-vars">
 <h2>Tclobj Shadow Vars<a class="headerlink" href="#tclobj-shadow-vars" title="Permalink to this headline">¶</a></h2>
 <p>Another new feature, Tclobj shadow vars, <cite>t = tohil.tclvar(‘t’)</cite>, makes <em>t</em> a
 tclobj that shadows a variable <em>t</em> in the Tcl interpreter.  Any changes to the
 variable from the Tcl side are “seen” from the Python side, and vice versa.
 The variable can also be an array element.</p>
-</div>
-<div class="section" id="tcldicts">
+</section>
+<section id="tcldicts">
 <h2>Tcldicts<a class="headerlink" href="#tcldicts" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Tcldict objects now provide many methods that standard Python dicts
@@ -213,27 +214,27 @@ popping the last item in the list if no position is specified, else popping
 the specified position, i.e. removing it from the list and returning it.</p></li>
 <li><p>A new <em>.insert(i, x)</em> method will insert item x at position i.</p></li>
 </ul>
-</div>
-<div class="section" id="shadowdicts">
+</section>
+<section id="shadowdicts">
 <h2>ShadowDicts<a class="headerlink" href="#shadowdicts" title="Permalink to this headline">¶</a></h2>
 <p>ShadowDicts implement many additional methods implemented by standard
 Python dicts.</p>
 <p>ShadowDicts now have a <em>get</em> method that behaves as standard dicts do.
 A new <em>clear</em> method removes all items from the shadow diction, i.e. it
 unsets the shadowed Tcl array.</p>
-</div>
-<div class="section" id="python-exception-improvements">
+</section>
+<section id="python-exception-improvements">
 <h2>Python exception improvements<a class="headerlink" href="#python-exception-improvements" title="Permalink to this headline">¶</a></h2>
 <p>We now raise more standard Python TypeError, KeyError and ValueError exceptions
 in places where we used to just raise RuntimeError.</p>
-</div>
-<div class="section" id="tohil-method-improvements-and-changes">
+</section>
+<section id="tohil-method-improvements-and-changes">
 <h2>Tohil method improvements and changes<a class="headerlink" href="#tohil-method-improvements-and-changes" title="Permalink to this headline">¶</a></h2>
 <p>Tohil.unset can now take an arbitrary number of arguments of variable names
 and array elements to unset, include zero.  As before, it is fine to unset
 something that doesn’t exist.</p>
-</div>
-<div class="section" id="testing-improvements">
+</section>
+<section id="testing-improvements">
 <h2>Testing Improvements<a class="headerlink" href="#testing-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Lots of new tests.</p></li>
@@ -242,11 +243,11 @@ and fixed a number of problems because of it.</p></li>
 <li><p>All tests pass now on 32-bit ARM Linux.</p></li>
 <li><p>Linux CI automated testing using Github Actions</p></li>
 </ul>
-</div>
-<div class="section" id="build-improvements">
+</section>
+<section id="build-improvements">
 <h2>Build Improvements<a class="headerlink" href="#build-improvements" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -350,11 +351,11 @@ and fixed a number of problems because of it.</p></li>
 <br />
     <br />
 
-    Last updated on Aug 04, 2021.
+    Last updated on Sep 06, 2021.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
     </div>
 
   </body>

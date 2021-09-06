@@ -4,13 +4,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>2. Using Tcl from Python &#8212; Tohil 4.1 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css" />
     
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -159,12 +160,12 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="using-tcl-from-python">
+  <section id="using-tcl-from-python">
 <span id="tutorial-tcl-from-python"></span><h1><span class="section-number">2. </span>Using Tcl from Python<a class="headerlink" href="#using-tcl-from-python" title="Permalink to this headline">¶</a></h1>
 <p>Here we’ll introduce using Tcl from Python.</p>
 <p>Hopefully you’ve got Tcl and Python and Tohil installed and you can
 follow along and try stuff out.</p>
-<div class="section" id="tohil-eval">
+<section id="tohil-eval">
 <h2><span class="section-number">2.1. </span>tohil.eval<a class="headerlink" href="#tohil-eval" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">tohil</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tohil</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s1">&#39;puts &quot;Hello, world.&quot;&#39;</span><span class="p">)</span>
@@ -188,8 +189,8 @@ time in the Spanish locale:</p>
 <span class="go">&#39;vie mar 19 19:32:28 GMT 2021&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="helper-functions">
+</section>
+<section id="helper-functions">
 <h2><span class="section-number">2.2. </span>helper functions<a class="headerlink" href="#helper-functions" title="Permalink to this headline">¶</a></h2>
 <p>We can load in Tcl packages by doing</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tohil</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s1">&#39;package require Tclx&#39;</span><span class="p">)</span>
@@ -218,8 +219,8 @@ we provide the slightly less paper-cutty…</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tohil</span><span class="o">.</span><span class="n">source</span><span class="p">(</span><span class="s2">&quot;file.tcl&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="tohil-call">
+</section>
+<section id="tohil-call">
 <h2><span class="section-number">2.3. </span>tohil.call<a class="headerlink" href="#tohil-call" title="Permalink to this headline">¶</a></h2>
 <p>You get fancy and start using f-strings to create Tcl commands with
 arguments, maybe you’re doing something like</p>
@@ -244,8 +245,8 @@ to interpret any of the arguments.</p>
 <code class="docutils literal notranslate"><span class="pre">tohil.call('clock',</span> <span class="pre">'format',</span> <span class="pre">clock,</span> <span class="pre">'-locale',</span> <span class="pre">'fr')</span></code>, equivalent
 to <code class="docutils literal notranslate"><span class="pre">tohil.eval(f&quot;clock</span> <span class="pre">format</span> <span class="pre">{clock}</span> <span class="pre">-locale</span> <span class="pre">fr&quot;)</span></code> but without the
 risk of inadvertent misinterpretation of arguments.</p>
-</div>
-<div class="section" id="tohil-expr">
+</section>
+<section id="tohil-expr">
 <h2><span class="section-number">2.4. </span>tohil.expr<a class="headerlink" href="#tohil-expr" title="Permalink to this headline">¶</a></h2>
 <p>You can also evaluate Tcl expressions from Python using <em>tohil.expr</em>.
 As with many other tohil functions, to= can be used to request conversion to a
@@ -266,8 +267,8 @@ specific Python datatype.</p>
 <span class="go">25571</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="tohil-getvar-and-tohil-setvar">
+</section>
+<section id="tohil-getvar-and-tohil-setvar">
 <h2><span class="section-number">2.5. </span>tohil.getvar and tohil.setvar<a class="headerlink" href="#tohil-getvar-and-tohil-setvar" title="Permalink to this headline">¶</a></h2>
 <p>Python has direct access to Tcl variables and array elements
 using <em>tohil.getvar</em>.  Likewise, <em>tohil.setvar</em> can set them.</p>
@@ -305,8 +306,8 @@ exists, or trap the Python exception, or make use of <em>tohil.getvar</em>’s h
 <span class="go">4</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="tohil-exists">
+</section>
+<section id="tohil-exists">
 <h2><span class="section-number">2.6. </span>tohil.exists<a class="headerlink" href="#tohil-exists" title="Permalink to this headline">¶</a></h2>
 <p>You can use <em>tohil.exists</em> to see if a variable or array element exists:</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tohil</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s2">&quot;array set x [list a 1 b 2 c 3 d 4]&quot;</span><span class="p">)</span>
@@ -320,8 +321,8 @@ exists, or trap the Python exception, or make use of <em>tohil.getvar</em>’s h
 <span class="go">False</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="tohil-incr">
+</section>
+<section id="tohil-incr">
 <h2><span class="section-number">2.7. </span>tohil.incr<a class="headerlink" href="#tohil-incr" title="Permalink to this headline">¶</a></h2>
 <p><em>tohil.incr</em> takes a Tcl variable name or array element and attempts
 to increment it.</p>
@@ -337,8 +338,8 @@ a keyword argument, using “incr”.</p>
 <span class="n">tohil</span><span class="o">.</span><span class="n">incr</span><span class="p">(</span><span class="s1">&#39;var&#39;</span><span class="p">,</span><span class="n">incr</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="tohil-unset">
+</section>
+<section id="tohil-unset">
 <h2><span class="section-number">2.8. </span>tohil.unset<a class="headerlink" href="#tohil-unset" title="Permalink to this headline">¶</a></h2>
 <p><em>tohil.unset</em> can be used to unset variables, array elements, and even entire
 arrays in the Tcl interpreter.</p>
@@ -359,8 +360,8 @@ arrays in the Tcl interpreter.</p>
 <li><p>Unsetting an array by name without a subscript will unset the entire array.</p></li>
 <li><p>It is not an error to attempt to unset a variable that doesn’t exist.</p></li>
 </ul>
-</div>
-<div class="section" id="tohil-subst">
+</section>
+<section id="tohil-subst">
 <h2><span class="section-number">2.9. </span>tohil.subst<a class="headerlink" href="#tohil-subst" title="Permalink to this headline">¶</a></h2>
 <p>Tcl’s <em>subst</em> command is pretty cool.  By default it performs Tcl backslash,
 command and variable substitutions, but doesn’t evaluate the final result,
@@ -373,15 +374,15 @@ with embedded $-substitution and square bracket evaluation.</p>
 <span class="go">&#39;hello, karl&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="tohil-convert">
+</section>
+<section id="tohil-convert">
 <h2><span class="section-number">2.10. </span>tohil.convert<a class="headerlink" href="#tohil-convert" title="Permalink to this headline">¶</a></h2>
 <p><em>tohil.convert</em> will convert some Python thing passed to it, into a Tcl
 object, and then back to some other Python type,
 any type supported in accordance with the to= argument.</p>
 <p>The “to=” way of requesting a type conversion is supported.  Although you might not care about converting to int or float or something, you might want a tohil.tclobj for your efforts, anirite?</p>
-</div>
-<div class="section" id="tohil-interact">
+</section>
+<section id="tohil-interact">
 <h2><span class="section-number">2.11. </span>tohil.interact<a class="headerlink" href="#tohil-interact" title="Permalink to this headline">¶</a></h2>
 <p>Run the Tcl interactive command loop on stdin, hopefully a terminal, until
 you send an EOF, at which point you’ll be returned to the Python command
@@ -390,8 +391,8 @@ line.  See also <em>tohil::interact</em>.</p>
 making a lot of <em>tohil.eval</em> calls to manipulate the Tcl interpreter, you
 can flip to the Tcl interpreter, interact with it directly, then flip
 back by sending an end-of-file.</p>
-</div>
-<div class="section" id="tohil-tcl-stdout-to-python">
+</section>
+<section id="tohil-tcl-stdout-to-python">
 <h2><span class="section-number">2.12. </span>tohil.tcl_stdout_to_python()<a class="headerlink" href="#tohil-tcl-stdout-to-python" title="Permalink to this headline">¶</a></h2>
 <p>Redirect Tcl’s standard output to pass through Python’s I/O
 subsystem.</p>
@@ -400,8 +401,8 @@ if using <a class="reference external" href="https://https://jupyter.org">Jupyte
 tohil.tcl_stdout_to_python() will cause
 output from the Tcl interpreter to appear in the notebook.</p>
 <p>tclvar</p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -509,11 +510,11 @@ output from the Tcl interpreter to appear in the notebook.</p>
 <br />
     <br />
 
-    Last updated on Aug 04, 2021.
+    Last updated on Sep 06, 2021.
     <a href="https://docs.python.org/3/bugs.html">Found a bug</a>?
     <br />
 
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.2.
     </div>
 
   </body>

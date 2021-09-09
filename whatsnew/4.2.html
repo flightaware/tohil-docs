@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>What’s New In Tohil 4.1 &#8212; Tohil 4.2 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What’s New In Tohil 4.2 &#8212; Tohil 4.2 documentation</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/pydoctheme.css" />
@@ -25,9 +25,9 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="next" title="What’s New In Tohil 4.0" href="4.0.html" />
-    <link rel="prev" title="What’s New In Tohil 4.2" href="4.2.html" />
-    <link rel="canonical" href="https://docs.python.org/3/whatsnew/4.1.html" />
+    <link rel="next" title="What’s New In Tohil 4.1" href="4.1.html" />
+    <link rel="prev" title="What’s New in Tohil" href="index.html" />
+    <link rel="canonical" href="https://docs.python.org/3/whatsnew/4.2.html" />
     
       
     
@@ -71,28 +71,27 @@
             <div class="language_switcher_placeholder"></div>
   <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">What’s New In Tohil 4.1</a><ul>
-<li><a class="reference internal" href="#tclobjs-returned-from-more-places">tclobjs returned from more places</a></li>
-<li><a class="reference internal" href="#python-side-callback-function-registration">Python-side callback function registration</a></li>
-<li><a class="reference internal" href="#several-other-improvements">Several other improvements</a></li>
-<li><a class="reference internal" href="#numerous-bug-fixes">Numerous bug fixes</a></li>
-<li><a class="reference internal" href="#considerably-improved-documentation">Considerably improved documentation</a></li>
+<li><a class="reference internal" href="#">What’s New In Tohil 4.2</a><ul>
+<li><a class="reference internal" href="#python-code-passed-to-tohil-exec-is-now-unindented-before-being-passed-to-python">Python code passed to tohil::exec is now unindented before being passed to Python</a></li>
+<li><a class="reference internal" href="#additional-improvements">Additional Improvements</a></li>
+<li><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li><a class="reference internal" href="#improved-build-support">Improved Build Support</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="4.2.html"
-                        title="previous chapter">What’s New In Tohil 4.2</a></p>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">What’s New in Tohil</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="4.0.html"
-                        title="next chapter">What’s New In Tohil 4.0</a></p>
+  <p class="topless"><a href="4.1.html"
+                        title="next chapter">What’s New In Tohil 4.1</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/whatsnew/4.1.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/whatsnew/4.2.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -110,10 +109,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="4.0.html" title="What’s New In Tohil 4.0"
+          <a href="4.1.html" title="What’s New In Tohil 4.1"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="4.2.html" title="What’s New In Tohil 4.2"
+          <a href="index.html" title="What’s New in Tohil"
              accesskey="P">previous</a> |</li>
 
           <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -130,7 +129,7 @@
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">What’s New in Tohil</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">What’s New In Tohil 4.1</a></li>
+        <li class="nav-item nav-item-this"><a href="">What’s New In Tohil 4.2</a></li>
                 <li class="right">
                     
 
@@ -153,52 +152,61 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="what-s-new-in-tohil-4-1">
-<h1>What’s New In Tohil 4.1<a class="headerlink" href="#what-s-new-in-tohil-4-1" title="Permalink to this headline">¶</a></h1>
-<section id="tclobjs-returned-from-more-places">
-<h2>tclobjs returned from more places<a class="headerlink" href="#tclobjs-returned-from-more-places" title="Permalink to this headline">¶</a></h2>
+  <section id="what-s-new-in-tohil-4-2">
+<h1>What’s New In Tohil 4.2<a class="headerlink" href="#what-s-new-in-tohil-4-2" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to Tohil 4.2.</p>
+<p>4.2 is primarily a maintenance release, but includes at least one really
+nice new feature:</p>
+<section id="python-code-passed-to-tohil-exec-is-now-unindented-before-being-passed-to-python">
+<h2>Python code passed to tohil::exec is now unindented before being passed to Python<a class="headerlink" href="#python-code-passed-to-tohil-exec-is-now-unindented-before-being-passed-to-python" title="Permalink to this headline">¶</a></h2>
+<p>Tohil’s #1 new feature request!  Up until now, the argument to <code class="docutils literal notranslate"><span class="pre">tohil::exec</span></code>
+had to obey Python indentation rules including there being no indentation at all
+for the top level, leading to ugly stuff like:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span>    <span class="n">tohil</span><span class="p">::</span><span class="n">exec</span> <span class="p">{</span>
+<span class="k">def</span> <span class="nf">new_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+     <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>^ The “def” here has to occur at the beginning of the line, i.e. not be preceded
+by any spaces or
+tabs, or Python will raise an exception.  This nesting does not “read” well.</p>
+<p>To make it easier to make your code read well and comply with Python indentation rules,
+if the first nonblank line starts with whitespace, tohil::exec will un-indent the code block
+such that the first line is not indented at all and following lines are undented
+to match, all done lickety split, natively in C.</p>
+<p>So you can now nest your embedded Python code in a more standard way:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">tohil</span><span class="p">::</span><span class="n">exec</span> <span class="p">{</span>
+   <span class="k">def</span> <span class="nf">new_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="additional-improvements">
+<h2>Additional Improvements<a class="headerlink" href="#additional-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><cite>to=dict</cite> conversions now returns tclobjs for the dictionary values.</p></li>
-<li><p><cite>tclobj.as_dict()</cite> does so as well.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">-nonevalue</span></code> option to <code class="docutils literal notranslate"><span class="pre">tohil::call</span></code>, allowing the “none” sentinel
+to be specified arbitrarily (Retains the default value of <code class="docutils literal notranslate"><span class="pre">tohil::NONE</span></code>.)</p></li>
+<li><p>Cleaned up tohil namespace so <code class="docutils literal notranslate"><span class="pre">dir(tohil)</span></code> doesn’t show modules tohil imported as
+if it had created them.</p></li>
+<li><p>Made <code class="docutils literal notranslate"><span class="pre">package</span> <span class="pre">forget</span> <span class="pre">tohil</span></code> work.</p></li>
+<li><p>Added support for the Tcl <code class="docutils literal notranslate"><span class="pre">unload</span></code> command to be able to unload the Tohil shared
+library. (Consider it risky, though.)</p></li>
 </ul>
 </section>
-<section id="python-side-callback-function-registration">
-<h2>Python-side callback function registration<a class="headerlink" href="#python-side-callback-function-registration" title="Permalink to this headline">¶</a></h2>
-<p>The new <cite>register_callback</cite> function provides a nice way to create Tcl
-commands that directly call corresponding Python functions.  This is useful
-for processing asynchronous callbacks from the Tcl event loop using Python,
-and may be useful for other stuff as well.</p>
-</section>
-<section id="several-other-improvements">
-<h2>Several other improvements<a class="headerlink" href="#several-other-improvements" title="Permalink to this headline">¶</a></h2>
+<section id="bug-fixes">
+<h2>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Pass None from Tcl to Python functions called via <cite>tohil::call</cite>
-by using the <cite>tohil::NONE</cite> sentinel.</p></li>
-<li><p>More precise error messages when Tohil startup fails should help
-with troubleshooting installation problems.</p></li>
-<li><p>Many new tests.</p></li>
+<li><p>Fixed crash when register_callback-registered functions raised a Python exception</p></li>
 </ul>
 </section>
-<section id="numerous-bug-fixes">
-<h2>Numerous bug fixes<a class="headerlink" href="#numerous-bug-fixes" title="Permalink to this headline">¶</a></h2>
+<section id="improved-build-support">
+<h2>Improved Build Support<a class="headerlink" href="#improved-build-support" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Python builtins can be called from Tcl-side tohil::call without
-resorting to explicitly specifying the builtins namespace.</p></li>
-<li><p>Fixed bugs in how tclvars (tclobjs bound to vars) handled some methods,
-such as insert, pop, append, and extend.</p></li>
-<li><p>Correct behavior of tclobj iterators, also fixes a crash.</p></li>
-<li><p>If Python is initializing Tcl, it now does so using
-<cite>package require</cite> rather than a <cite>Tohil_Init</cite> to cause Tohil’s Tcl package
-code to get sourced.  (It also requires the exact version of Tohil that it is,
-to reduce the risk of it loading some other version of the library when
-multiple versions are installed.)</p></li>
+<li><p>Added support for building tohil as a Debian package</p></li>
+<li><p>Homebrew formula for building with homebrew</p></li>
 </ul>
-</section>
-<section id="considerably-improved-documentation">
-<h2>Considerably improved documentation<a class="headerlink" href="#considerably-improved-documentation" title="Permalink to this headline">¶</a></h2>
-<p>We’ve considerably improved and extended the Tohil tutorial and
-reference, in Python-standard RST format,
-and are serving it out at <a class="reference external" href="https://flightaware.github.io/tohil-docs/">https://flightaware.github.io/tohil-docs/</a></p>
 </section>
 </section>
 
@@ -211,28 +219,27 @@ and are serving it out at <a class="reference external" href="https://flightawar
         <div class="sphinxsidebarwrapper">
   <h3><a href="../contents.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">What’s New In Tohil 4.1</a><ul>
-<li><a class="reference internal" href="#tclobjs-returned-from-more-places">tclobjs returned from more places</a></li>
-<li><a class="reference internal" href="#python-side-callback-function-registration">Python-side callback function registration</a></li>
-<li><a class="reference internal" href="#several-other-improvements">Several other improvements</a></li>
-<li><a class="reference internal" href="#numerous-bug-fixes">Numerous bug fixes</a></li>
-<li><a class="reference internal" href="#considerably-improved-documentation">Considerably improved documentation</a></li>
+<li><a class="reference internal" href="#">What’s New In Tohil 4.2</a><ul>
+<li><a class="reference internal" href="#python-code-passed-to-tohil-exec-is-now-unindented-before-being-passed-to-python">Python code passed to tohil::exec is now unindented before being passed to Python</a></li>
+<li><a class="reference internal" href="#additional-improvements">Additional Improvements</a></li>
+<li><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li><a class="reference internal" href="#improved-build-support">Improved Build Support</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="4.2.html"
-                        title="previous chapter">What’s New In Tohil 4.2</a></p>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">What’s New in Tohil</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="4.0.html"
-                        title="next chapter">What’s New In Tohil 4.0</a></p>
+  <p class="topless"><a href="4.1.html"
+                        title="next chapter">What’s New In Tohil 4.1</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">Report a Bug</a></li>
       <li>
-        <a href="https://github.com/python/cpython/blob/master/Doc/whatsnew/4.1.rst"
+        <a href="https://github.com/python/cpython/blob/master/Doc/whatsnew/4.2.rst"
             rel="nofollow">Show Source
         </a>
       </li>
@@ -249,10 +256,10 @@ and are serving it out at <a class="reference external" href="https://flightawar
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="4.0.html" title="What’s New In Tohil 4.0"
+          <a href="4.1.html" title="What’s New In Tohil 4.1"
              >next</a> |</li>
         <li class="right" >
-          <a href="4.2.html" title="What’s New In Tohil 4.2"
+          <a href="index.html" title="What’s New in Tohil"
              >previous</a> |</li>
 
           <li><img src="../_static/tohil.png" alt="tohil logo" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -269,7 +276,7 @@ and are serving it out at <a class="reference external" href="https://flightawar
     </li>
 
           <li class="nav-item nav-item-1"><a href="index.html" >What’s New in Tohil</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">What’s New In Tohil 4.1</a></li>
+        <li class="nav-item nav-item-this"><a href="">What’s New In Tohil 4.2</a></li>
                 <li class="right">
                     
 
